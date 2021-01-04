@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "",
+            "text": "##### INFO\n\nFlow calculates the Covid-19 confirmed and death cases for a given date for each country and additionally for each continent. KPI's are available relating the numbers to the total population of the country or continent.\n\nThere are two KPI's available: cases per 100 people of population and cases per 100000 people of population.\n\n**Note**: The data used originates from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE): https://github.com/CSSEGISandData/COVID-19\n\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -17,10 +17,10 @@
             "width": null,
             "height": 160
           },
-          "view": "edit"
+          "view": "split"
         },
         "editor": {
-          "collapsed": true
+          "collapsed": false
         }
       },
       "showingComment": true
@@ -51,14 +51,14 @@
             "defaultValue": {
               "widgetType": "expression/code",
               "widgetData": {
-                "text": "1",
+                "text": "# negative offset from today's date\n1",
                 "size": {
                   "width": 0,
-                  "height": 36
+                  "height": 59
                 },
                 "syntax": "tweakflow"
               },
-              "code": "1"
+              "code": "# negative offset from today's date\n1\n"
             }
           }
         ]
@@ -4397,7 +4397,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
-      "name": "Sort: deaths per population",
+      "name": "Sort: confirmed per population",
       "type": "com.twineworks.tweakstreet.library.steps.sort.sort",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -4408,7 +4408,7 @@
       },
       "data": {
         "meta": {
-          "name": "Sort: deaths per population",
+          "name": "Sort: confirmed per population",
           "showingComment": false,
           "comment": {
             "markdown": {
