@@ -895,10 +895,10 @@
           "widgetType": "expression/local-file",
           "widgetData": {
             "interpolation": true,
-            "text": "./git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/${in.yesterday_date}.csv",
+            "text": "${flow.vars.root_folder_data}/csse_covid_19_daily_reports/${in.yesterday_date}.csv",
             "dialogIntent": "openFile"
           },
-          "code": "let {\n  string literal_0: './git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/';\n  string interpolation_1: in.yesterday_date;\n  string literal_2: '.csv';\n}\nliteral_0 .. interpolation_1 .. literal_2"
+          "code": "let {\n  string interpolation_0: flow.vars.root_folder_data;\n  string literal_1: '/csse_covid_19_daily_reports/';\n  string interpolation_2: in.yesterday_date;\n  string literal_3: '.csv';\n}\ninterpolation_0 .. literal_1 .. interpolation_2 .. literal_3"
         },
         "compression": {
           "widgetType": "expression/select",
@@ -2895,9 +2895,9 @@
           "widgetType": "expression/string",
           "widgetData": {
             "interpolation": true,
-            "text": "/home/uwe/development/tweakstreet-flows/geonames/country_continent_lookup.csv"
+            "text": "./country_continent_lookup.csv"
           },
-          "code": "'/home/uwe/development/tweakstreet-flows/geonames/country_continent_lookup.csv'"
+          "code": "'./country_continent_lookup.csv'"
         },
         "compression": {
           "widgetType": "expression/select",
@@ -3201,9 +3201,9 @@
           "widgetType": "expression/string",
           "widgetData": {
             "interpolation": true,
-            "text": "/home/uwe/development/tweakstreet-flows/geonames/continent_names_lookup.csv"
+            "text": "./continent_names_lookup.csv"
           },
-          "code": "'/home/uwe/development/tweakstreet-flows/geonames/continent_names_lookup.csv'"
+          "code": "'./continent_names_lookup.csv'"
         },
         "compression": {
           "widgetType": "expression/select",
