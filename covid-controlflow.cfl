@@ -1,0 +1,471 @@
+{
+  "type": "control-flow",
+  "appVersion": "1.14.1",
+  "properties": {
+    "meta": {
+      "comment": {
+        "markdown": {
+          "text": {
+            "text": "",
+            "syntax": "markdown",
+            "size": {
+              "width": "100%",
+              "height": "100%"
+            }
+          },
+          "size": {
+            "width": null,
+            "height": 160
+          },
+          "view": "edit"
+        },
+        "editor": {
+          "collapsed": true
+        }
+      },
+      "showingComment": true
+    },
+    "editor": {
+      "showParameters": true,
+      "showVariables": true,
+      "showServices": true,
+      "dialogWidth": "wide"
+    },
+    "imports": {
+      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
+      "size": {
+        "width": 0,
+        "height": 102
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "parameters": {
+      "parameters": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "variables": {
+      "variables": {
+        "list": [
+          {
+            "name": "root_folder_data",
+            "type": "any",
+            "value": {
+              "widgetType": "expression/string",
+              "widgetData": {
+                "interpolation": true,
+                "text": "/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports"
+              },
+              "code": "'/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports'"
+            }
+          }
+        ]
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "services": {
+      "services": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "start",
+      "name": "Start",
+      "type": "com.twineworks.tweakstreet.library.steps.start.start",
+      "data": {
+        "meta": {
+          "name": "Start"
+        }
+      },
+      "pos": {
+        "x": 182,
+        "y": 182
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "name": "Run Flow",
+      "type": "com.twineworks.tweakstreet.library.steps.map.runflow",
+      "data": {
+        "meta": {
+          "name": "Run Flow",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "flowPath": {
+          "widgetType": "expression/local-file",
+          "widgetData": {
+            "interpolation": true,
+            "text": "./covid-01.dfl",
+            "dialogIntent": "openFile"
+          },
+          "code": "'./covid-01.dfl'"
+        },
+        "params": {
+          "widgetType": "expression/dict",
+          "widgetData": {
+            "table": {
+              "list": [
+                {
+                  "key": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "offset_days"
+                    },
+                    "code": "'offset_days'"
+                  },
+                  "value": {
+                    "widgetType": "expression/code",
+                    "widgetData": {
+                      "text": "# negative offset from today's date\n1",
+                      "size": {
+                        "width": 0,
+                        "height": 59
+                      },
+                      "syntax": "tweakflow"
+                    },
+                    "code": "# negative offset from today's date\n1\n"
+                  }
+                }
+              ]
+            }
+          },
+          "code": "{\n  'offset_days' # negative offset from today's date\n1\n\n}"
+        },
+        "propagateErrors": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": true
+          },
+          "code": "true"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "success",
+                "type": "boolean",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_success"
+                  },
+                  "code": "::results.flow_success"
+                }
+              },
+              {
+                "name": "result",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_result"
+                  },
+                  "code": "::results.flow_result"
+                }
+              },
+              {
+                "name": "error",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_error"
+                  },
+                  "code": "::results.flow_error"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 714,
+        "y": 186
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.end.finish_69b9d223-0ac5-44bf-add6-ede3ac6fa8ca",
+      "name": "Finish",
+      "type": "com.twineworks.tweakstreet.library.steps.end.finish",
+      "data": {
+        "meta": {
+          "name": "Finish",
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": ""
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "editor": {
+                "collapsed": true
+              }
+            }
+          },
+          "showingComment": false
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "result": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "row"
+          },
+          "code": "row"
+        },
+        "editor": {
+          "showEntryVariables": false
+        }
+      },
+      "pos": {
+        "x": 986,
+        "y": 186
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
+      "name": "Find Files",
+      "type": "com.twineworks.tweakstreet.library.steps.map.findfiles",
+      "data": {
+        "meta": {
+          "name": "Find Files",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "fs": {
+          "widgetType": "expression/storage-ref",
+          "widgetData": {
+            "name": ""
+          },
+          "code": "nil"
+        },
+        "path": {
+          "widgetType": "expression/local-file",
+          "widgetData": {
+            "interpolation": true,
+            "text": "${flow.vars.root_folder_data}",
+            "dialogIntent": "openFolder"
+          },
+          "code": "let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0"
+        },
+        "maxDepth": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "1"
+          },
+          "code": "1"
+        },
+        "pattern": {
+          "widgetType": "expression/string",
+          "widgetData": {
+            "interpolation": true,
+            "text": ".*/[0-9]{2}-[0-9]{2}-2021.csv"
+          },
+          "code": "'.*/[0-9]{2}-[0-9]{2}-2021.csv'"
+        },
+        "filter": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "",
+            "size": {
+              "width": 0,
+              "height": 95
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "nil"
+        },
+        "matchFiles": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": true
+          },
+          "code": "true"
+        },
+        "matchFolders": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "onError": {
+          "widgetType": "expression/select",
+          "widgetData": {
+            "family": "com.twineworks.tweakstreet.library.steps.map.findfiles/onError",
+            "value": "warn"
+          },
+          "code": "'warn'"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "paths",
+                "type": "list",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.paths"
+                  },
+                  "code": "::results.paths"
+                }
+              },
+              {
+                "name": "files",
+                "type": "list",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.files"
+                  },
+                  "code": "::results.files"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 410,
+        "y": 186
+      }
+    }
+  ],
+  "hops": [
+    {
+      "id": "86ee6c92-be58-49d2-ba10-dd54efcd7cda",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "toStep": "com.twineworks.tweakstreet.library.steps.end.finish_69b9d223-0ac5-44bf-add6-ede3ac6fa8ca",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false
+    },
+    {
+      "id": "a6241fc1-18ed-4422-9359-c6a591a856b4",
+      "fromStep": "start",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false
+    },
+    {
+      "id": "5ab92dc1-24b7-49ae-a91e-ddb04dc0c646",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false
+    }
+  ]
+}

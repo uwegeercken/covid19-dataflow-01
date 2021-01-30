@@ -2316,14 +2316,14 @@
         "condition": {
           "widgetType": "expression/code",
           "widgetData": {
-            "text": "in.Province_State == ''",
+            "text": "# we only want those entries which do not have a state/province defined. these are the country valus\nin.Province_State == ''",
             "size": {
               "width": 0,
-              "height": 36
+              "height": 89
             },
             "syntax": "tweakflow"
           },
-          "code": "in.Province_State == ''"
+          "code": "# we only want those entries which do not have a state/province defined. these are the country valus\nin.Province_State == ''\n"
         },
         "editor": {
           "showEntryVariables": false
