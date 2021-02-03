@@ -1,12 +1,12 @@
 {
   "type": "control-flow",
-  "appVersion": "1.14.1",
+  "appVersion": "1.14.2",
   "properties": {
     "meta": {
       "comment": {
         "markdown": {
           "text": {
-            "text": "",
+            "text": "##### INFO\n\nCalculates the confirmed and death cases per country and continent and calculates  a KPI based on the population.\n\nThe variable _root_folder_data_ defines, where the Covid-19 data files are located. The data can be cloned from GitHub here: https://github.com/CSSEGISandData/COVID-19\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -17,10 +17,10 @@
             "width": null,
             "height": 160
           },
-          "view": "edit"
+          "view": "preview"
         },
         "editor": {
-          "collapsed": true
+          "collapsed": false
         }
       },
       "showingComment": true
@@ -32,7 +32,7 @@
       "dialogWidth": "wide"
     },
     "imports": {
-      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
+      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\nimport strings from 'std';",
       "size": {
         "width": 0,
         "height": 102
@@ -150,27 +150,45 @@
                     "widgetType": "expression/string",
                     "widgetData": {
                       "interpolation": true,
-                      "text": "offset_days"
+                      "text": "root_folder_data"
                     },
-                    "code": "'offset_days'"
+                    "code": "'root_folder_data'"
+                  },
+                  "value": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "${flow.vars.root_folder_data}"
+                    },
+                    "code": "let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0"
+                  }
+                },
+                {
+                  "key": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "files"
+                    },
+                    "code": "'files'"
                   },
                   "value": {
                     "widgetType": "expression/code",
                     "widgetData": {
-                      "text": "# negative offset from today's date\n1",
+                      "text": "in.files",
                       "size": {
                         "width": 0,
-                        "height": 59
+                        "height": 36
                       },
                       "syntax": "tweakflow"
                     },
-                    "code": "# negative offset from today's date\n1\n"
+                    "code": "in.files"
                   }
                 }
               ]
             }
           },
-          "code": "{\n  'offset_days' # negative offset from today's date\n1\n\n}"
+          "code": "{\n  'root_folder_data' let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0,\n  'files' in.files\n}"
         },
         "propagateErrors": {
           "widgetType": "expression/checkbox-boolean",
@@ -402,17 +420,6 @@
           "outputFields": {
             "list": [
               {
-                "name": "paths",
-                "type": "list",
-                "value": {
-                  "widgetType": "expression/result-ref",
-                  "widgetData": {
-                    "value": "::results.paths"
-                  },
-                  "code": "::results.paths"
-                }
-              },
-              {
                 "name": "files",
                 "type": "list",
                 "value": {
@@ -437,7 +444,7 @@
         "model": {}
       },
       "pos": {
-        "x": 410,
+        "x": 442,
         "y": 186
       }
     }
@@ -460,7 +467,7 @@
       "disabled": false
     },
     {
-      "id": "5ab92dc1-24b7-49ae-a91e-ddb04dc0c646",
+      "id": "ef2a9b5b-2f4a-43a2-b4e9-a48146046517",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
       "fromGate": "out",
