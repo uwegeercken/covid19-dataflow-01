@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "##### INFO\n\nFlow calculates the Covid-19 confirmed and death cases for a given date for each country and additionally for each continent. KPI's are available relating the numbers to the total population of the country or continent.\n\nThere are two KPI's available: cases per 100 people of population and cases per 100000 people of population.\n\n**Note**: The data used originates from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE): https://github.com/CSSEGISandData/COVID-19\n\n",
+            "text": "##### INFO\n\nFlow calculates the Covid-19 confirmed and death cases for a given date for each country and additionally for each continent. KPI's are available relating the numbers to the total population of the country and continent.\n\nThere are two KPI's available: cases per 100 people of population and cases per 100000 people of population.\n\n**Note**: The data used originates from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE): https://github.com/CSSEGISandData/COVID-19\n\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -15,7 +15,7 @@
           },
           "size": {
             "width": null,
-            "height": 160
+            "height": 231
           },
           "view": "preview"
         },
@@ -52,9 +52,9 @@
               "widgetType": "expression/string",
               "widgetData": {
                 "interpolation": true,
-                "text": ""
+                "text": "/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports"
               },
-              "code": "''"
+              "code": "'/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports'"
             }
           },
           {
@@ -690,12 +690,12 @@
               },
               "size": {
                 "width": null,
-                "height": 160
+                "height": 36
               },
               "view": "edit"
             },
             "editor": {
-              "collapsed": true
+              "collapsed": false
             }
           }
         },
@@ -1450,7 +1450,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
-      "name": "Pick Fields",
+      "name": "Pick Fields: deaths country",
       "type": "com.twineworks.tweakstreet.library.steps.map.pickfields",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -1461,7 +1461,7 @@
       },
       "data": {
         "meta": {
-          "name": "Pick Fields",
+          "name": "Pick Fields: deaths country",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -1556,13 +1556,13 @@
         "model": {}
       },
       "pos": {
-        "x": 1370,
+        "x": 1434,
         "y": 506
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
-      "name": "Calculator",
+      "name": "Calculator: Countries",
       "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -1573,7 +1573,7 @@
       },
       "data": {
         "meta": {
-          "name": "Calculator",
+          "name": "Calculator: Countries",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -1949,14 +1949,14 @@
         "condition": {
           "widgetType": "expression/code",
           "widgetData": {
-            "text": "# we only want those entries which do not have a state/province defined. these are the country valus\nin.Province_State == ''",
+            "text": "# we only want the details on the country level\nin.Province_State == ''",
             "size": {
               "width": 0,
               "height": 89
             },
             "syntax": "tweakflow"
           },
-          "code": "# we only want those entries which do not have a state/province defined. these are the country valus\nin.Province_State == ''\n"
+          "code": "# we only want the details on the country level\nin.Province_State == ''\n"
         },
         "editor": {
           "showEntryVariables": false
@@ -1970,7 +1970,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.dummy_94d85d5b-172d-46e0-9603-492001992d30",
-      "name": "Dummy",
+      "name": "Dummy: obsolete rows",
       "type": "com.twineworks.tweakstreet.library.steps.map.dummy",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -1981,24 +1981,31 @@
       },
       "data": {
         "meta": {
-          "name": "Dummy",
+          "name": "Dummy: obsolete rows",
+          "showingComment": false,
           "comment": {
             "markdown": {
               "text": {
-                "text": ""
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
               },
               "size": {
                 "width": null,
                 "height": 160
               },
-              "editor": {
-                "collapsed": true
-              }
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
             }
-          },
-          "showingComment": false
+          }
         },
-        "editor": {}
+        "editor": {},
+        "model": {}
       },
       "pos": {
         "x": 874,
@@ -2325,7 +2332,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.pickfields_85d659eb-cd8a-4512-bf6b-3d6a96433c6c",
-      "name": "Pick Fields",
+      "name": "Pick Fields: confirmed country",
       "type": "com.twineworks.tweakstreet.library.steps.map.pickfields",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -2336,7 +2343,7 @@
       },
       "data": {
         "meta": {
-          "name": "Pick Fields",
+          "name": "Pick Fields: confirmed country",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -2431,7 +2438,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1370,
+        "x": 1434,
         "y": 650
       }
     },
@@ -2928,7 +2935,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1418,
+        "x": 1434,
         "y": 298
       }
     },
@@ -3190,7 +3197,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
-      "name": "Calculator",
+      "name": "Calculator: Continent",
       "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3201,7 +3208,7 @@
       },
       "data": {
         "meta": {
-          "name": "Calculator",
+          "name": "Calculator: Continent",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -3318,7 +3325,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.pickfields_45592289-d6fc-44bf-bcd0-32676cc02636",
-      "name": "Pick Fields",
+      "name": "Pick Fields: deaths continent",
       "type": "com.twineworks.tweakstreet.library.steps.map.pickfields",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3329,7 +3336,7 @@
       },
       "data": {
         "meta": {
-          "name": "Pick Fields",
+          "name": "Pick Fields: deaths continent",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -3416,7 +3423,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1370,
+        "x": 1434,
         "y": 810
       }
     },
@@ -3647,7 +3654,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.dummy_04ea5b8d-f697-404e-bd4e-60cf9b6c54c6",
-      "name": "Dummy",
+      "name": "Dummy: invalid Continents",
       "type": "com.twineworks.tweakstreet.library.steps.map.dummy",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3658,24 +3665,31 @@
       },
       "data": {
         "meta": {
-          "name": "Dummy",
+          "name": "Dummy: invalid Continents",
+          "showingComment": false,
           "comment": {
             "markdown": {
               "text": {
-                "text": ""
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
               },
               "size": {
                 "width": null,
                 "height": 160
               },
-              "editor": {
-                "collapsed": true
-              }
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
             }
-          },
-          "showingComment": false
+          }
         },
-        "editor": {}
+        "editor": {},
+        "model": {}
       },
       "pos": {
         "x": 394,
@@ -3815,7 +3829,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
-      "name": "Pick Fields",
+      "name": "Pick Fields: confirmed continent",
       "type": "com.twineworks.tweakstreet.library.steps.map.pickfields",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3826,7 +3840,7 @@
       },
       "data": {
         "meta": {
-          "name": "Pick Fields",
+          "name": "Pick Fields: confirmed continent",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -3913,7 +3927,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1370,
+        "x": 1434,
         "y": 954
       }
     },
@@ -4078,7 +4092,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.flatmap.getitems_8bcc6cb2-ae1d-444f-a8a7-80d86529f776",
-      "name": "List to Rows",
+      "name": "List to Rows: input files",
       "type": "com.twineworks.tweakstreet.library.steps.flatmap.getitems",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -4089,7 +4103,7 @@
       },
       "data": {
         "meta": {
-          "name": "List to Rows",
+          "name": "List to Rows: input files",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -4175,14 +4189,14 @@
         "items": {
           "widgetType": "expression/code",
           "widgetData": {
-            "text": "flow.params.files",
+            "text": "# the step expects a list of files to be considered for the calculations\nflow.params.files",
             "size": {
               "width": 0,
-              "height": 36
+              "height": 69
             },
             "syntax": "tweakflow"
           },
-          "code": "flow.params.files"
+          "code": "# the step expects a list of files to be considered for the calculations\nflow.params.files\n"
         },
         "resultVariables": {
           "variables": {
@@ -4263,7 +4277,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.dummy_61b9a0b9-6d48-490c-810a-748284564106",
-      "name": "Dummy",
+      "name": "Dummy: files with issues",
       "type": "com.twineworks.tweakstreet.library.steps.map.dummy",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -4274,24 +4288,31 @@
       },
       "data": {
         "meta": {
-          "name": "Dummy",
+          "name": "Dummy: files with issues",
+          "showingComment": false,
           "comment": {
             "markdown": {
               "text": {
-                "text": ""
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
               },
               "size": {
                 "width": null,
                 "height": 160
               },
-              "editor": {
-                "collapsed": true
-              }
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
             }
-          },
-          "showingComment": false
+          }
         },
-        "editor": {}
+        "editor": {},
+        "model": {}
       },
       "pos": {
         "x": 170,
@@ -4643,7 +4664,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1578,
+        "x": 1738,
         "y": 506
       }
     },
@@ -4992,7 +5013,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1578,
+        "x": 1738,
         "y": 650
       }
     },
@@ -5294,7 +5315,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1578,
+        "x": 1738,
         "y": 810
       }
     },
@@ -5596,7 +5617,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1578,
+        "x": 1738,
         "y": 954
       }
     }

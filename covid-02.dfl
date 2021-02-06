@@ -1,0 +1,1157 @@
+{
+  "type": "data-flow",
+  "appVersion": "1.13.0",
+  "properties": {
+    "meta": {
+      "comment": {
+        "markdown": {
+          "text": {
+            "text": "",
+            "syntax": "markdown",
+            "size": {
+              "width": "100%",
+              "height": "100%"
+            }
+          },
+          "size": {
+            "width": null,
+            "height": 160
+          },
+          "view": "edit"
+        },
+        "editor": {
+          "collapsed": true
+        }
+      },
+      "showingComment": true
+    },
+    "editor": {
+      "showParameters": true,
+      "showVariables": true,
+      "showServices": true,
+      "dialogWidth": "wide"
+    },
+    "imports": {
+      "code": "# import the standard library\n# import json, core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\nimport json from 'tweakstreet/json';",
+      "size": {
+        "width": 0,
+        "height": 102
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "parameters": {
+      "parameters": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "variables": {
+      "variables": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "services": {
+      "services": {
+        "list": [
+          {
+            "name": "silent1",
+            "type": "any",
+            "category": "storage",
+            "value": {
+              "widgetType": "expression/storage",
+              "widgetData": {
+                "type": "com.twineworks.tweakstreet.library.storage.vfs2",
+                "storage": {
+                  "authOptions": {
+                    "widgetType": "com.twineworks.tweakstreet.library.storage.vfs2/auth",
+                    "widgetData": {
+                      "domain": {
+                        "widgetType": "expression/nil",
+                        "widgetData": {},
+                        "code": "nil"
+                      },
+                      "user": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "password": {
+                        "widgetType": "expression/password",
+                        "widgetData": {
+                          "text": "",
+                          "encrypted": false
+                        },
+                        "code": "''"
+                      },
+                      "editor": {
+                        "collapsed": true
+                      },
+                      "model": {}
+                    },
+                    "code": "{\n  :domain nil,\n  :user '',\n  :password ''\n}"
+                  },
+                  "ftpOptions": {
+                    "widgetType": "com.twineworks.tweakstreet.library.storage.vfs2/ftp",
+                    "widgetData": {
+                      "tabs": {},
+                      "userDirIsRoot": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": false
+                        },
+                        "code": "false"
+                      },
+                      "controlEncoding": {
+                        "widgetType": "expression/charset",
+                        "widgetData": {
+                          "value": "UTF-8"
+                        },
+                        "code": "'UTF-8'"
+                      },
+                      "connectTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "30000"
+                        },
+                        "code": "30000"
+                      },
+                      "dataTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "30000"
+                        },
+                        "code": "30000"
+                      },
+                      "socketTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "30000"
+                        },
+                        "code": "30000"
+                      },
+                      "passiveMode": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": true
+                        },
+                        "code": "true"
+                      },
+                      "serverTimeZoneId": {
+                        "widgetType": "expression/timezone",
+                        "widgetData": {
+                          "value": "Europe/Berlin"
+                        },
+                        "code": "'Europe/Berlin'"
+                      },
+                      "proxyType": {
+                        "widgetType": "expression/select",
+                        "widgetData": {
+                          "family": "com.twineworks.tweakstreet.library.storage.vfs2/ftp/proxyType",
+                          "value": "direct"
+                        },
+                        "code": "'direct'"
+                      },
+                      "proxyHost": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "proxyPort": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "1080"
+                        },
+                        "code": "1080"
+                      },
+                      "editor": {
+                        "collapsed": true
+                      },
+                      "model": {}
+                    },
+                    "code": "{\n  :userDirIsRoot false,\n  :controlEncoding 'UTF-8',\n  :connectTimeoutMillis 30000,\n  :dataTimeoutMillis 30000,\n  :socketTimeoutMillis 30000,\n  :passiveMode true,\n  :serverTimeZoneId 'Europe/Berlin',\n  :proxyType 'direct',\n  :proxyHost '',\n  :proxyPort 1080\n}"
+                  },
+                  "sftpOptions": {
+                    "widgetType": "com.twineworks.tweakstreet.library.storage.vfs2/sftp",
+                    "widgetData": {
+                      "tabs": {},
+                      "userDirIsRoot": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": false
+                        },
+                        "code": "false"
+                      },
+                      "identities": {
+                        "widgetType": "expression/data-grid",
+                        "widgetData": {
+                          "fields": [
+                            {
+                              "id": "private_key",
+                              "name": "private_key"
+                            },
+                            {
+                              "id": "public_key",
+                              "name": "public_key"
+                            },
+                            {
+                              "id": "passphrase",
+                              "name": "passphrase"
+                            }
+                          ],
+                          "gen": {
+                            "as": "rows",
+                            "of": "dict",
+                            "meta": false
+                          },
+                          "table": {
+                            "list": []
+                          }
+                        },
+                        "code": "[]"
+                      },
+                      "fileNameEncoding": {
+                        "widgetType": "expression/charset",
+                        "widgetData": {
+                          "value": "UTF-8"
+                        },
+                        "code": "'UTF-8'"
+                      },
+                      "compression": {
+                        "widgetType": "expression/select",
+                        "widgetData": {
+                          "family": "com.twineworks.tweakstreet.library.storage.vfs2/sftp/compression",
+                          "value": "zlib,none"
+                        },
+                        "code": "'zlib,none'"
+                      },
+                      "connectTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "0"
+                        },
+                        "code": "0"
+                      },
+                      "sessionTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "0"
+                        },
+                        "code": "0"
+                      },
+                      "preferredAuth": {
+                        "widgetType": "expression/select",
+                        "widgetData": {
+                          "family": "com.twineworks.tweakstreet.library.storage.vfs2/sftp/preferredAuth",
+                          "value": "password,publickey"
+                        },
+                        "code": "'password,publickey'"
+                      },
+                      "strictHostKeyChecking": {
+                        "widgetType": "expression/select",
+                        "widgetData": {
+                          "family": "com.twineworks.tweakstreet.library.storage.vfs2/sftp/strictHostKeyChecking",
+                          "value": "no"
+                        },
+                        "code": "'no'"
+                      },
+                      "knownHosts": {
+                        "widgetType": "expression/local-file",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": "",
+                          "dialogIntent": "openFile"
+                        },
+                        "code": "''"
+                      },
+                      "proxyType": {
+                        "widgetType": "expression/select",
+                        "widgetData": {
+                          "family": "com.twineworks.tweakstreet.library.storage.vfs2/sftp/proxyType",
+                          "value": "none"
+                        },
+                        "code": "'none'"
+                      },
+                      "proxyHost": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "proxyPort": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "1080"
+                        },
+                        "code": "1080"
+                      },
+                      "proxyUser": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "proxyPassword": {
+                        "widgetType": "expression/password",
+                        "widgetData": {
+                          "text": "",
+                          "encrypted": false
+                        },
+                        "code": "''"
+                      },
+                      "editor": {
+                        "collapsed": true
+                      },
+                      "model": {}
+                    },
+                    "code": "{\n  :userDirIsRoot false,\n  :identities [],\n  :fileNameEncoding 'UTF-8',\n  :compression 'zlib,none',\n  :connectTimeoutMillis 0,\n  :sessionTimeoutMillis 0,\n  :preferredAuth 'password,publickey',\n  :strictHostKeyChecking 'no',\n  :knownHosts '',\n  :proxyType 'none',\n  :proxyHost '',\n  :proxyPort 1080,\n  :proxyUser '',\n  :proxyPassword ''\n}"
+                  },
+                  "httpOptions": {
+                    "widgetType": "com.twineworks.tweakstreet.library.storage.vfs2/http",
+                    "widgetData": {
+                      "tabs": {},
+                      "userAgent": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": "Mozilla/5.0 (Data Automation)"
+                        },
+                        "code": "'Mozilla/5.0 (Data Automation)'"
+                      },
+                      "urlCharset": {
+                        "widgetType": "expression/charset",
+                        "widgetData": {
+                          "value": "UTF-8"
+                        },
+                        "code": "'UTF-8'"
+                      },
+                      "followRedirect": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": true
+                        },
+                        "code": "true"
+                      },
+                      "verifyHostName": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": true
+                        },
+                        "code": "true"
+                      },
+                      "keyStoreFile": {
+                        "widgetType": "expression/local-file",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": "",
+                          "dialogIntent": "openFile"
+                        },
+                        "code": "''"
+                      },
+                      "keyStorePass": {
+                        "widgetType": "expression/password",
+                        "widgetData": {
+                          "text": "",
+                          "encrypted": false
+                        },
+                        "code": "''"
+                      },
+                      "preemptiveAuth": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": false
+                        },
+                        "code": "false"
+                      },
+                      "keepAlive": {
+                        "widgetType": "expression/checkbox-boolean",
+                        "widgetData": {
+                          "value": true
+                        },
+                        "code": "true"
+                      },
+                      "maxConnectionsPerHost": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "5"
+                        },
+                        "code": "5"
+                      },
+                      "maxConnectionsTotal": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "50"
+                        },
+                        "code": "50"
+                      },
+                      "connectTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "30000"
+                        },
+                        "code": "30000"
+                      },
+                      "socketTimeoutMillis": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "30000"
+                        },
+                        "code": "30000"
+                      },
+                      "proxyHost": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "proxyPort": {
+                        "widgetType": "expression/number",
+                        "widgetData": {
+                          "text": "1080"
+                        },
+                        "code": "1080"
+                      },
+                      "proxyUser": {
+                        "widgetType": "expression/string",
+                        "widgetData": {
+                          "interpolation": true,
+                          "text": ""
+                        },
+                        "code": "''"
+                      },
+                      "proxyPassword": {
+                        "widgetType": "expression/password",
+                        "widgetData": {
+                          "text": "",
+                          "encrypted": false
+                        },
+                        "code": "''"
+                      },
+                      "editor": {
+                        "collapsed": true
+                      },
+                      "model": {}
+                    },
+                    "code": "{\n  :userAgent 'Mozilla/5.0 (Data Automation)',\n  :urlCharset 'UTF-8',\n  :followRedirect true,\n  :verifyHostName true,\n  :keyStoreFile '',\n  :keyStorePass '',\n  :preemptiveAuth false,\n  :keepAlive true,\n  :maxConnectionsPerHost 5,\n  :maxConnectionsTotal 50,\n  :connectTimeoutMillis 30000,\n  :socketTimeoutMillis 30000,\n  :proxyHost '',\n  :proxyPort 1080,\n  :proxyUser '',\n  :proxyPassword ''\n}"
+                  },
+                  "zipOptions": {
+                    "widgetType": "com.twineworks.tweakstreet.library.storage.vfs2/zip",
+                    "widgetData": {
+                      "charset": {
+                        "widgetType": "expression/charset",
+                        "widgetData": {
+                          "value": "UTF-8"
+                        },
+                        "code": "'UTF-8'"
+                      },
+                      "editor": {
+                        "collapsed": true
+                      },
+                      "model": {}
+                    },
+                    "code": "{\n  :charset 'UTF-8'\n}"
+                  },
+                  "editor": {},
+                  "model": {}
+                },
+                "summary": false
+              },
+              "code": "{\n  :type 'com.twineworks.tweakstreet.library.storage.vfs2',\n  :storage {\n    :authOptions {\n      :domain nil,\n      :user '',\n      :password ''\n    },\n    :ftpOptions {\n      :userDirIsRoot false,\n      :controlEncoding 'UTF-8',\n      :connectTimeoutMillis 30000,\n      :dataTimeoutMillis 30000,\n      :socketTimeoutMillis 30000,\n      :passiveMode true,\n      :serverTimeZoneId 'Europe/Berlin',\n      :proxyType 'direct',\n      :proxyHost '',\n      :proxyPort 1080\n    },\n    :sftpOptions {\n      :userDirIsRoot false,\n      :identities [],\n      :fileNameEncoding 'UTF-8',\n      :compression 'zlib,none',\n      :connectTimeoutMillis 0,\n      :sessionTimeoutMillis 0,\n      :preferredAuth 'password,publickey',\n      :strictHostKeyChecking 'no',\n      :knownHosts '',\n      :proxyType 'none',\n      :proxyHost '',\n      :proxyPort 1080,\n      :proxyUser '',\n      :proxyPassword ''\n    },\n    :httpOptions {\n      :userAgent 'Mozilla/5.0 (Data Automation)',\n      :urlCharset 'UTF-8',\n      :followRedirect true,\n      :verifyHostName true,\n      :keyStoreFile '',\n      :keyStorePass '',\n      :preemptiveAuth false,\n      :keepAlive true,\n      :maxConnectionsPerHost 5,\n      :maxConnectionsTotal 50,\n      :connectTimeoutMillis 30000,\n      :socketTimeoutMillis 30000,\n      :proxyHost '',\n      :proxyPort 1080,\n      :proxyUser '',\n      :proxyPassword ''\n    },\n    :zipOptions {\n      :charset 'UTF-8'\n    }\n  }\n}"
+            }
+          }
+        ]
+      },
+      "editor": {
+        "collapsed": false
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.group.groupby_39dd1bd0-890d-4d6b-bdd1-59def7c94919",
+      "name": "Group By",
+      "type": "com.twineworks.tweakstreet.library.steps.group.groupby",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Group By",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "groupFields": {
+          "groupFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "collatedGroups": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "aggregationFields": {
+          "aggregationFields": {
+            "list": [
+              {
+                "name": "json_row",
+                "type": "list",
+                "aggregation": {
+                  "widgetType": "expression/aggregate-collect",
+                  "widgetData": {
+                    "nilHandling": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/nilHandling",
+                        "value": "ignore"
+                      },
+                      "code": "'ignore'"
+                    },
+                    "nanHandling": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/NaNHandling",
+                        "value": "ignore"
+                      },
+                      "code": "'ignore'"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_aggregator: (string nilHandling, string nanHandling) -> via {:class 'com.twineworks.tweakstreet.library.aggregation.Aggregators$collect_aggregator'};\n}\nmake_aggregator('ignore', 'ignore')\n"
+                },
+                "subject": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "row",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "row"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showGroupFields": true,
+          "showResultVariables": false,
+          "showOutputFields": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 618,
+        "y": 266
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.features.core.steps.writefile_fb94738f-967b-452d-b4c5-46ffc2f126a5",
+      "name": "Write to File",
+      "type": "com.twineworks.tweakstreet.features.core.steps.writefile",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Write to File",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "fs": {
+          "widgetType": "expression/storage-ref",
+          "widgetData": {
+            "name": ""
+          },
+          "code": "nil"
+        },
+        "file": {
+          "widgetType": "expression/local-file",
+          "widgetData": {
+            "interpolation": true,
+            "text": "/home/uwe/development/kafka-connect/tweakstreet-json/output-004.json",
+            "dialogIntent": "saveFile"
+          },
+          "code": "'/home/uwe/development/kafka-connect/tweakstreet-json/output-004.json'"
+        },
+        "writeMode": {
+          "widgetType": "expression/select",
+          "widgetData": {
+            "family": "com.twineworks.tweakstreet.features.core.steps.writefile/writeMode",
+            "value": "string"
+          },
+          "code": "'string'"
+        },
+        "charset": {
+          "widgetType": "expression/charset",
+          "widgetData": {
+            "value": "UTF-8"
+          },
+          "code": "'UTF-8'"
+        },
+        "content": {
+          "widgetType": "expression/field-value-ref",
+          "widgetData": {
+            "fieldSelect": {
+              "value": {
+                "gate": "in",
+                "name": "output"
+              }
+            }
+          },
+          "code": "::in.output"
+        },
+        "whenFileExists": {
+          "widgetType": "expression/select",
+          "widgetData": {
+            "family": "com.twineworks.tweakstreet.features.core.steps.writefile/whenFileExists",
+            "value": "truncate"
+          },
+          "code": "'truncate'"
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showWriteFields": true,
+          "showOutputFields": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1242,
+        "y": 266
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.calculator_0bc31476-c0e7-4c72-92fd-ab43f469814f",
+      "name": "Calculator",
+      "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Calculator",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": [
+              {
+                "name": "formatter",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/encode-json",
+                  "widgetData": {
+                    "prettyPrint": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
+                    "datetimeFormatter": {
+                      "widgetType": "expression/format-datetime",
+                      "widgetData": {
+                        "pattern": {
+                          "widgetType": "expression/datetime-pattern",
+                          "widgetData": {
+                            "value": "uuuu-MM-dd'T'HH:mm:ss.SSS[ZZZZZ]"
+                          },
+                          "code": "'uuuu-MM-dd''T''HH:mm:ss.SSS[ZZZZZ]'"
+                        },
+                        "locale": {
+                          "widgetType": "expression/locale",
+                          "widgetData": {
+                            "value": "en-US"
+                          },
+                          "code": "'en-US'"
+                        },
+                        "nilValue": {
+                          "widgetType": "expression/nil",
+                          "widgetData": {},
+                          "code": "nil"
+                        },
+                        "editor": {
+                          "collapsed": true
+                        },
+                        "model": {}
+                      },
+                      "code": "let {\n  make_formatter: (string pattern, string locale, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Formatters$datetime_formatter'};\n}\nmake_formatter('uuuu-MM-dd''T''HH:mm:ss.SSS[ZZZZZ]', 'en-US', nil)\n"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  pretty_print: true;\n  datetime_formatter: let {\n  make_formatter: (string pattern, string locale, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Formatters$datetime_formatter'};\n}\nmake_formatter('uuuu-MM-dd''T''HH:mm:ss.SSS[ZZZZZ]', 'en-US', nil)\n;\n  make_encoder: (boolean pretty_print, function date_encoder, function binary_encoder) -> function via {:class 'com.twineworks.tweakstreet.library.json.Json$encoder'};\n}\nmake_encoder(pretty_print, datetime_formatter, nil)\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "output",
+                "type": "string",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "vars.formatter(in.json_row)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "vars.formatter(in.json_row)"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 890,
+        "y": 266
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.flatmap.generaterows_77c856da-0d7f-4c1c-82ae-364c1f49616b",
+      "name": "Generate Rows",
+      "type": "com.twineworks.tweakstreet.library.steps.flatmap.generaterows",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Generate Rows",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "nrRows": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "10"
+          },
+          "code": "10"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "row_nr",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.row_nr"
+                  },
+                  "code": "::results.row_nr"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 138,
+        "y": 266
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.randomdata_57a66d54-6ce3-4292-a48b-63a95913c36a",
+      "name": "Random Data",
+      "type": "com.twineworks.tweakstreet.library.steps.map.randomdata",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Random Data",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "seed": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": ""
+          },
+          "code": "nil"
+        },
+        "generatorVariables": {
+          "generatorVars": {
+            "list": [
+              {
+                "type": "any",
+                "name": "person_generator",
+                "generator": {
+                  "widgetType": "expression/generate-person",
+                  "widgetData": {
+                    "nilChance": {
+                      "widgetType": "expression/number",
+                      "widgetData": {
+                        "text": "0"
+                      },
+                      "code": "0"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_generator: (double nilChance) -> via {:class 'com.twineworks.tweakstreet.library.generate.Generators$person'};\n}\nmake_generator(0)\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "person",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.generated"
+                  },
+                  "code": "::results.generated"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 410,
+        "y": 266
+      }
+    }
+  ],
+  "hops": [
+    {
+      "id": "642162ff-33a5-4733-b0c2-7e019c67efc6",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.group.groupby_39dd1bd0-890d-4d6b-bdd1-59def7c94919",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_0bc31476-c0e7-4c72-92fd-ab43f469814f",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "94878925-8462-452f-ba21-ebbe6ee7d96b",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_0bc31476-c0e7-4c72-92fd-ab43f469814f",
+      "toStep": "com.twineworks.tweakstreet.features.core.steps.writefile_fb94738f-967b-452d-b4c5-46ffc2f126a5",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": true,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "aabc9196-e166-4ce5-8022-75a04ebba94a",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.flatmap.generaterows_77c856da-0d7f-4c1c-82ae-364c1f49616b",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.randomdata_57a66d54-6ce3-4292-a48b-63a95913c36a",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "0d889a2e-46e5-40ca-9490-d8876635acaa",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.randomdata_57a66d54-6ce3-4292-a48b-63a95913c36a",
+      "toStep": "com.twineworks.tweakstreet.library.steps.group.groupby_39dd1bd0-890d-4d6b-bdd1-59def7c94919",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    }
+  ]
+}
