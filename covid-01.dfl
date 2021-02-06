@@ -659,8 +659,8 @@
         "model": {}
       },
       "pos": {
-        "x": 410,
-        "y": 122
+        "x": 362,
+        "y": 74
       }
     },
     {
@@ -1313,8 +1313,8 @@
         "model": {}
       },
       "pos": {
-        "x": 170,
-        "y": 506
+        "x": 122,
+        "y": 458
       }
     },
     {
@@ -1444,8 +1444,8 @@
         "model": {}
       },
       "pos": {
-        "x": 634,
-        "y": 506
+        "x": 586,
+        "y": 458
       }
     },
     {
@@ -1518,7 +1518,15 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_deaths"
+                    "name": "type"
+                  }
+                }
+              },
+              {
+                "field": {
+                  "value": {
+                    "gate": "in",
+                    "name": "total"
                   }
                 }
               },
@@ -1534,7 +1542,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_deaths_100000"
+                    "name": "kpi_100000"
                   }
                 }
               },
@@ -1542,7 +1550,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_deaths_100"
+                    "name": "kpi_100"
                   }
                 }
               }
@@ -1556,13 +1564,13 @@
         "model": {}
       },
       "pos": {
-        "x": 1434,
-        "y": 506
+        "x": 1386,
+        "y": 458
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
-      "name": "Calculator: Countries",
+      "name": "Calculator: Countries deaths",
       "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -1573,7 +1581,7 @@
       },
       "data": {
         "meta": {
-          "name": "Calculator: Countries",
+          "name": "Calculator: Countries deaths",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -1608,7 +1616,19 @@
           "outputFields": {
             "list": [
               {
-                "name": "kpi_deaths_100000",
+                "name": "type",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/string",
+                  "widgetData": {
+                    "interpolation": true,
+                    "text": "deaths"
+                  },
+                  "code": "'deaths'"
+                }
+              },
+              {
+                "name": "kpi_100000",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
@@ -1624,7 +1644,7 @@
                 }
               },
               {
-                "name": "kpi_deaths_100",
+                "name": "kpi_100",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
@@ -1640,35 +1660,19 @@
                 }
               },
               {
-                "name": "kpi_comfirmed_100000",
+                "name": "total",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "in.total_confirmed/in.population * 100000",
+                    "text": "in.total_deaths",
                     "size": {
                       "width": 0,
                       "height": 36
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "in.total_confirmed/in.population * 100000"
-                }
-              },
-              {
-                "name": "kpi_comfirmed_100",
-                "type": "any",
-                "value": {
-                  "widgetType": "expression/code",
-                  "widgetData": {
-                    "text": "in.total_confirmed/in.population * 100",
-                    "size": {
-                      "width": 0,
-                      "height": 36
-                    },
-                    "syntax": "tweakflow"
-                  },
-                  "code": "in.total_confirmed/in.population * 100"
+                  "code": "in.total_deaths"
                 }
               }
             ]
@@ -1684,8 +1688,8 @@
         "model": {}
       },
       "pos": {
-        "x": 874,
-        "y": 506
+        "x": 826,
+        "y": 458
       }
     },
     {
@@ -1898,8 +1902,8 @@
         "model": {}
       },
       "pos": {
-        "x": 394,
-        "y": 506
+        "x": 346,
+        "y": 458
       }
     },
     {
@@ -1964,8 +1968,8 @@
         "model": {}
       },
       "pos": {
-        "x": 634,
-        "y": 122
+        "x": 586,
+        "y": 74
       }
     },
     {
@@ -2008,8 +2012,8 @@
         "model": {}
       },
       "pos": {
-        "x": 874,
-        "y": 122
+        "x": 826,
+        "y": 74
       }
     },
     {
@@ -2122,11 +2126,11 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100000"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100000"
+                  "code": "::in.kpi_100000"
                 },
                 "comparator": {
                   "widgetType": "expression/compare-number",
@@ -2167,8 +2171,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 506
+        "x": 1082,
+        "y": 458
       }
     },
     {
@@ -2281,11 +2285,11 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_comfirmed_100000"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_comfirmed_100000"
+                  "code": "::in.kpi_100000"
                 },
                 "comparator": {
                   "widgetType": "expression/compare-number",
@@ -2326,8 +2330,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 650
+        "x": 1082,
+        "y": 602
       }
     },
     {
@@ -2400,7 +2404,15 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_confirmed"
+                    "name": "type"
+                  }
+                }
+              },
+              {
+                "field": {
+                  "value": {
+                    "gate": "in",
+                    "name": "total"
                   }
                 }
               },
@@ -2416,7 +2428,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_comfirmed_100000"
+                    "name": "kpi_100000"
                   }
                 }
               },
@@ -2424,7 +2436,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_comfirmed_100"
+                    "name": "kpi_100"
                   }
                 }
               }
@@ -2438,8 +2450,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1434,
-        "y": 650
+        "x": 1386,
+        "y": 602
       }
     },
     {
@@ -2629,8 +2641,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 122
+        "x": 1082,
+        "y": 74
       }
     },
     {
@@ -2744,8 +2756,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 298
+        "x": 1082,
+        "y": 250
       }
     },
     {
@@ -2935,8 +2947,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1434,
-        "y": 298
+        "x": 1386,
+        "y": 250
       }
     },
     {
@@ -3191,13 +3203,13 @@
         "model": {}
       },
       "pos": {
-        "x": 634,
-        "y": 810
+        "x": 586,
+        "y": 762
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
-      "name": "Calculator: Continent",
+      "name": "Calculator: Continent deaths",
       "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3208,7 +3220,7 @@
       },
       "data": {
         "meta": {
-          "name": "Calculator: Continent",
+          "name": "Calculator: Continent deaths",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -3243,7 +3255,19 @@
           "outputFields": {
             "list": [
               {
-                "name": "kpi_deaths_100000",
+                "name": "type",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/string",
+                  "widgetData": {
+                    "interpolation": true,
+                    "text": "deaths"
+                  },
+                  "code": "'deaths'"
+                }
+              },
+              {
+                "name": "kpi_100000",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
@@ -3259,7 +3283,7 @@
                 }
               },
               {
-                "name": "kpi_deaths_100",
+                "name": "kpi_100",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
@@ -3275,35 +3299,35 @@
                 }
               },
               {
-                "name": "kpi_comfirmed_100000",
+                "name": "total",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "in.total_confirmed/in.total_population * 100000",
+                    "text": "in.total_deaths",
                     "size": {
                       "width": 0,
                       "height": 36
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "in.total_confirmed/in.total_population * 100000"
+                  "code": "in.total_deaths"
                 }
               },
               {
-                "name": "kpi_comfirmed_100",
+                "name": "population",
                 "type": "any",
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "in.total_confirmed/in.total_population * 100",
+                    "text": "in.total_population",
                     "size": {
                       "width": 0,
                       "height": 36
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "in.total_confirmed/in.total_population * 100"
+                  "code": "in.total_population"
                 }
               }
             ]
@@ -3319,8 +3343,8 @@
         "model": {}
       },
       "pos": {
-        "x": 874,
-        "y": 810
+        "x": 826,
+        "y": 762
       }
     },
     {
@@ -3385,7 +3409,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_deaths"
+                    "name": "type"
                   }
                 }
               },
@@ -3393,7 +3417,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_population"
+                    "name": "total"
                   }
                 }
               },
@@ -3401,7 +3425,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_deaths_100000"
+                    "name": "population"
                   }
                 }
               },
@@ -3409,7 +3433,15 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_deaths_100"
+                    "name": "kpi_100000"
+                  }
+                }
+              },
+              {
+                "field": {
+                  "value": {
+                    "gate": "in",
+                    "name": "kpi_100"
                   }
                 }
               }
@@ -3423,8 +3455,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1434,
-        "y": 810
+        "x": 1386,
+        "y": 762
       }
     },
     {
@@ -3537,11 +3569,11 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100000"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100000"
+                  "code": "::in.kpi_100000"
                 },
                 "comparator": {
                   "widgetType": "expression/compare-number",
@@ -3582,8 +3614,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 810
+        "x": 1082,
+        "y": 762
       }
     },
     {
@@ -3648,8 +3680,8 @@
         "model": {}
       },
       "pos": {
-        "x": 634,
-        "y": 666
+        "x": 586,
+        "y": 618
       }
     },
     {
@@ -3692,8 +3724,8 @@
         "model": {}
       },
       "pos": {
-        "x": 394,
-        "y": 666
+        "x": 346,
+        "y": 618
       }
     },
     {
@@ -3823,8 +3855,8 @@
         "model": {}
       },
       "pos": {
-        "x": 634,
-        "y": 298
+        "x": 586,
+        "y": 250
       }
     },
     {
@@ -3889,7 +3921,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_deaths"
+                    "name": "type"
                   }
                 }
               },
@@ -3897,7 +3929,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "total_population"
+                    "name": "total"
                   }
                 }
               },
@@ -3905,7 +3937,7 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_comfirmed_100000"
+                    "name": "population"
                   }
                 }
               },
@@ -3913,7 +3945,15 @@
                 "field": {
                   "value": {
                     "gate": "in",
-                    "name": "kpi_comfirmed_100"
+                    "name": "kpi_100000"
+                  }
+                }
+              },
+              {
+                "field": {
+                  "value": {
+                    "gate": "in",
+                    "name": "kpi_100"
                   }
                 }
               }
@@ -3927,8 +3967,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1434,
-        "y": 954
+        "x": 1386,
+        "y": 906
       }
     },
     {
@@ -4041,11 +4081,11 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_comfirmed_100000"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_comfirmed_100000"
+                  "code": "::in.kpi_100000"
                 },
                 "comparator": {
                   "widgetType": "expression/compare-number",
@@ -4086,8 +4126,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1130,
-        "y": 954
+        "x": 1082,
+        "y": 906
       }
     },
     {
@@ -4271,8 +4311,8 @@
         "model": {}
       },
       "pos": {
-        "x": 170,
-        "y": 314
+        "x": 122,
+        "y": 266
       }
     },
     {
@@ -4315,13 +4355,13 @@
         "model": {}
       },
       "pos": {
-        "x": 170,
-        "y": 666
+        "x": 122,
+        "y": 618
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
-      "name": "CSV Output: deaths per country",
+      "name": "CSV Output: confirmed/deaths per country",
       "type": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -4332,7 +4372,7 @@
       },
       "data": {
         "meta": {
-          "name": "CSV Output: deaths per country",
+          "name": "CSV Output: confirmed/deaths per country",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -4374,10 +4414,10 @@
           "widgetType": "expression/local-file",
           "widgetData": {
             "interpolation": true,
-            "text": "./kpi_deaths_per_country.csv",
+            "text": "./cases_per_country.csv",
             "dialogIntent": "saveFile"
           },
-          "code": "'./kpi_deaths_per_country.csv'"
+          "code": "'./cases_per_country.csv'"
         },
         "charset": {
           "widgetType": "expression/charset",
@@ -4438,7 +4478,7 @@
           "stringWriteFields": {
             "list": [
               {
-                "name": "file_date",
+                "name": "filedate",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
@@ -4498,18 +4538,38 @@
                 }
               },
               {
-                "name": "total_deaths",
+                "name": "total",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "total_deaths"
+                        "name": "total"
                       }
                     }
                   },
-                  "code": "::in.total_deaths"
+                  "code": "::in.total"
+                },
+                "formatter": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "type",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "type"
+                      }
+                    }
+                  },
+                  "code": "::in.type"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -4565,18 +4625,18 @@
                 }
               },
               {
-                "name": "kpi_deaths_100000",
+                "name": "kpi_100000",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100000"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100000"
+                  "code": "::in.kpi_100000"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -4585,18 +4645,18 @@
                 }
               },
               {
-                "name": "kpi_deaths_100",
+                "name": "kpi_100",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100"
+                        "name": "kpi_100"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100"
+                  "code": "::in.kpi_100"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -4659,362 +4719,13 @@
           "showEntryVariables": false,
           "showStringWriteFields": true,
           "showResultVariables": false,
-          "showOutputFields": false
+          "showOutputFields": true
         },
         "model": {}
       },
       "pos": {
-        "x": 1738,
-        "y": 506
-      }
-    },
-    {
-      "id": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_5030ee66-925a-408f-9e43-6abd11071c34",
-      "name": "CSV Output: confirmed per country",
-      "type": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput",
-      "instanceCount": {
-        "widgetType": "expression/number",
-        "widgetData": {
-          "text": "1"
-        },
-        "code": "1"
-      },
-      "data": {
-        "meta": {
-          "name": "CSV Output: confirmed per country",
-          "showingComment": false,
-          "comment": {
-            "markdown": {
-              "text": {
-                "text": "",
-                "syntax": "markdown",
-                "size": {
-                  "width": "100%",
-                  "height": "100%"
-                }
-              },
-              "size": {
-                "width": null,
-                "height": 160
-              },
-              "view": "edit"
-            },
-            "editor": {
-              "collapsed": true
-            }
-          }
-        },
-        "entryVariables": {
-          "variables": {
-            "list": []
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "fs": {
-          "widgetType": "expression/storage-ref",
-          "widgetData": {
-            "name": ""
-          },
-          "code": "nil"
-        },
-        "file": {
-          "widgetType": "expression/local-file",
-          "widgetData": {
-            "interpolation": true,
-            "text": "./kpi_confirmed_per_country.csv",
-            "dialogIntent": "saveFile"
-          },
-          "code": "'./kpi_confirmed_per_country.csv'"
-        },
-        "charset": {
-          "widgetType": "expression/charset",
-          "widgetData": {
-            "value": "UTF-8"
-          },
-          "code": "'UTF-8'"
-        },
-        "compression": {
-          "widgetType": "expression/select",
-          "widgetData": {
-            "family": "expression/select/compression",
-            "value": "none"
-          },
-          "code": "'none'"
-        },
-        "fieldSeparator": {
-          "widgetType": "expression/separator",
-          "widgetData": {
-            "value": "comma"
-          },
-          "code": "\",\""
-        },
-        "fieldEncloser": {
-          "widgetType": "expression/string",
-          "widgetData": {
-            "interpolation": true,
-            "text": "\""
-          },
-          "code": "'\"'"
-        },
-        "lineEndings": {
-          "widgetType": "expression/line-ending",
-          "widgetData": {
-            "value": "unix"
-          },
-          "code": "\"\\n\""
-        },
-        "writeHeaderLine": {
-          "widgetType": "expression/checkbox-boolean",
-          "widgetData": {
-            "value": true
-          },
-          "code": "true"
-        },
-        "whenFileExists": {
-          "widgetType": "expression/select",
-          "widgetData": {
-            "family": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput/whenFileExists",
-            "value": "truncate"
-          },
-          "code": "'truncate'"
-        },
-        "fieldMode": {
-          "value": "fixed"
-        },
-        "stringWriteFields": {
-          "stringWriteFields": {
-            "list": [
-              {
-                "name": "file_date",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "filedate"
-                      }
-                    }
-                  },
-                  "code": "::in.filedate"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "Country_Region",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "Country_Region"
-                      }
-                    }
-                  },
-                  "code": "::in.Country_Region"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "continent_name",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "continent_name"
-                      }
-                    }
-                  },
-                  "code": "::in.continent_name"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "total_confirmed",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "total_confirmed"
-                      }
-                    }
-                  },
-                  "code": "::in.total_confirmed"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "population",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "population"
-                      }
-                    }
-                  },
-                  "code": "::in.population"
-                },
-                "formatter": {
-                  "widgetType": "expression/format-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "0"
-                      },
-                      "code": "'0'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_formatter: (string pattern, string locale, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Formatters$number_formatter'};\n}\nmake_formatter('0', 'en-US', '')\n"
-                }
-              },
-              {
-                "name": "kpi_comfirmed_100000",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_comfirmed_100000"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_comfirmed_100000"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "kpi_comfirmed_100",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_comfirmed_100"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_comfirmed_100"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              }
-            ]
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "dataDrivenColumns": {
-          "widgetType": "expression/data-grid",
-          "widgetData": {
-            "fields": [
-              {
-                "id": "name",
-                "name": "name"
-              }
-            ],
-            "gen": {
-              "as": "rows",
-              "of": "dict",
-              "meta": false
-            },
-            "table": {
-              "list": []
-            }
-          },
-          "code": "[]"
-        },
-        "dataDrivenValues": {
-          "widgetType": "expression/list",
-          "widgetData": {
-            "table": {
-              "list": []
-            }
-          },
-          "code": "[]"
-        },
-        "resultVariables": {
-          "variables": {
-            "list": []
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "outputFields": {
-          "outputFields": {
-            "list": []
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "editor": {
-          "showEntryVariables": false,
-          "showStringWriteFields": true,
-          "showResultVariables": false,
-          "showOutputFields": false
-        },
-        "model": {}
-      },
-      "pos": {
-        "x": 1738,
-        "y": 650
+        "x": 1914,
+        "y": 522
       }
     },
     {
@@ -5072,10 +4783,10 @@
           "widgetType": "expression/local-file",
           "widgetData": {
             "interpolation": true,
-            "text": "./kpi_deaths_per_continent.csv",
+            "text": "./cases_per_continent.csv",
             "dialogIntent": "saveFile"
           },
-          "code": "'./kpi_deaths_per_continent.csv'"
+          "code": "'./cases_per_continent.csv'"
         },
         "charset": {
           "widgetType": "expression/charset",
@@ -5136,7 +4847,7 @@
           "stringWriteFields": {
             "list": [
               {
-                "name": "file_date",
+                "name": "filedate",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
@@ -5176,18 +4887,18 @@
                 }
               },
               {
-                "name": "total_deaths",
+                "name": "type",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "total_deaths"
+                        "name": "type"
                       }
                     }
                   },
-                  "code": "::in.total_deaths"
+                  "code": "::in.type"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -5196,18 +4907,18 @@
                 }
               },
               {
-                "name": "total_population",
+                "name": "total",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "total_population"
+                        "name": "total"
                       }
                     }
                   },
-                  "code": "::in.total_population"
+                  "code": "::in.total"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -5216,18 +4927,18 @@
                 }
               },
               {
-                "name": "kpi_deaths_100000",
+                "name": "population",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100000"
+                        "name": "population"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100000"
+                  "code": "::in.population"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -5236,18 +4947,38 @@
                 }
               },
               {
-                "name": "kpi_deaths_100",
+                "name": "kpi_100000",
                 "value": {
                   "widgetType": "expression/field-value-ref",
                   "widgetData": {
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_deaths_100"
+                        "name": "kpi_100000"
                       }
                     }
                   },
-                  "code": "::in.kpi_deaths_100"
+                  "code": "::in.kpi_100000"
+                },
+                "formatter": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "kpi_100",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "kpi_100"
+                      }
+                    }
+                  },
+                  "code": "::in.kpi_100"
                 },
                 "formatter": {
                   "widgetType": "expression/nil",
@@ -5315,14 +5046,14 @@
         "model": {}
       },
       "pos": {
-        "x": 1738,
-        "y": 810
+        "x": 1914,
+        "y": 842
       }
     },
     {
-      "id": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_1a063661-f621-437a-9398-04e3858e1a11",
-      "name": "CSV Output: confirmed per continent",
-      "type": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput",
+      "id": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
+      "name": "Append Streams: Country",
+      "type": "com.twineworks.tweakstreet.library.steps.select.append",
       "instanceCount": {
         "widgetType": "expression/number",
         "widgetData": {
@@ -5332,7 +5063,63 @@
       },
       "data": {
         "meta": {
-          "name": "CSV Output: confirmed per continent",
+          "name": "Append Streams: Country",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "inputGates": {
+          "inputGates": {
+            "list": [
+              {
+                "name": "deaths"
+              },
+              {
+                "name": "confirmed"
+              }
+            ]
+          }
+        },
+        "editor": {},
+        "model": {}
+      },
+      "pos": {
+        "x": 1642,
+        "y": 522
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.calculator_56136675-9c05-455e-8c82-7a73430ebcdf",
+      "name": "Calculator: Countries confirmed",
+      "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Calculator: Countries confirmed",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -5363,198 +5150,67 @@
             "collapsed": false
           }
         },
-        "fs": {
-          "widgetType": "expression/storage-ref",
-          "widgetData": {
-            "name": ""
-          },
-          "code": "nil"
-        },
-        "file": {
-          "widgetType": "expression/local-file",
-          "widgetData": {
-            "interpolation": true,
-            "text": "./kpi_confirmed_per_continent.csv",
-            "dialogIntent": "saveFile"
-          },
-          "code": "'./kpi_confirmed_per_continent.csv'"
-        },
-        "charset": {
-          "widgetType": "expression/charset",
-          "widgetData": {
-            "value": "UTF-8"
-          },
-          "code": "'UTF-8'"
-        },
-        "compression": {
-          "widgetType": "expression/select",
-          "widgetData": {
-            "family": "expression/select/compression",
-            "value": "none"
-          },
-          "code": "'none'"
-        },
-        "fieldSeparator": {
-          "widgetType": "expression/separator",
-          "widgetData": {
-            "value": "comma"
-          },
-          "code": "\",\""
-        },
-        "fieldEncloser": {
-          "widgetType": "expression/string",
-          "widgetData": {
-            "interpolation": true,
-            "text": "\""
-          },
-          "code": "'\"'"
-        },
-        "lineEndings": {
-          "widgetType": "expression/line-ending",
-          "widgetData": {
-            "value": "unix"
-          },
-          "code": "\"\\n\""
-        },
-        "writeHeaderLine": {
-          "widgetType": "expression/checkbox-boolean",
-          "widgetData": {
-            "value": true
-          },
-          "code": "true"
-        },
-        "whenFileExists": {
-          "widgetType": "expression/select",
-          "widgetData": {
-            "family": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput/whenFileExists",
-            "value": "truncate"
-          },
-          "code": "'truncate'"
-        },
-        "fieldMode": {
-          "value": "fixed"
-        },
-        "stringWriteFields": {
-          "stringWriteFields": {
+        "outputFields": {
+          "outputFields": {
             "list": [
               {
-                "name": "file_date",
+                "name": "type",
+                "type": "any",
                 "value": {
-                  "widgetType": "expression/field-value-ref",
+                  "widgetType": "expression/string",
                   "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "filedate"
-                      }
-                    }
+                    "interpolation": true,
+                    "text": "confirmed"
                   },
-                  "code": "::in.filedate"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
+                  "code": "'confirmed'"
                 }
               },
               {
-                "name": "continent_name",
+                "name": "kpi_100000",
+                "type": "any",
                 "value": {
-                  "widgetType": "expression/field-value-ref",
+                  "widgetType": "expression/code",
                   "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "continent_name"
-                      }
-                    }
+                    "text": "in.total_confirmed/in.population * 100000",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
                   },
-                  "code": "::in.continent_name"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
+                  "code": "in.total_confirmed/in.population * 100000"
                 }
               },
               {
-                "name": "total_deaths",
+                "name": "kpi_100",
+                "type": "any",
                 "value": {
-                  "widgetType": "expression/field-value-ref",
+                  "widgetType": "expression/code",
                   "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "total_deaths"
-                      }
-                    }
+                    "text": "in.total_confirmed/in.population * 100",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
                   },
-                  "code": "::in.total_deaths"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
+                  "code": "in.total_confirmed/in.population * 100"
                 }
               },
               {
-                "name": "total_population",
+                "name": "total",
+                "type": "any",
                 "value": {
-                  "widgetType": "expression/field-value-ref",
+                  "widgetType": "expression/code",
                   "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "total_population"
-                      }
-                    }
+                    "text": "in.total_confirmed",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
                   },
-                  "code": "::in.total_population"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "kpi_comfirmed_100000",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_comfirmed_100000"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_comfirmed_100000"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "kpi_comfirmed_100",
-                "value": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_comfirmed_100"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_comfirmed_100"
-                },
-                "formatter": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
+                  "code": "in.total_confirmed"
                 }
               }
             ]
@@ -5563,36 +5219,54 @@
             "collapsed": false
           }
         },
-        "dataDrivenColumns": {
-          "widgetType": "expression/data-grid",
-          "widgetData": {
-            "fields": [
-              {
-                "id": "name",
-                "name": "name"
-              }
-            ],
-            "gen": {
-              "as": "rows",
-              "of": "dict",
-              "meta": false
+        "editor": {
+          "showEntryVariables": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 826,
+        "y": 602
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
+      "name": "Calculator: Continent confirmed",
+      "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Calculator: Continent confirmed",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
             },
-            "table": {
-              "list": []
+            "editor": {
+              "collapsed": true
             }
-          },
-          "code": "[]"
+          }
         },
-        "dataDrivenValues": {
-          "widgetType": "expression/list",
-          "widgetData": {
-            "table": {
-              "list": []
-            }
-          },
-          "code": "[]"
-        },
-        "resultVariables": {
+        "entryVariables": {
           "variables": {
             "list": []
           },
@@ -5602,23 +5276,154 @@
         },
         "outputFields": {
           "outputFields": {
-            "list": []
+            "list": [
+              {
+                "name": "type",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/string",
+                  "widgetData": {
+                    "interpolation": true,
+                    "text": "confirmed"
+                  },
+                  "code": "'confirmed'"
+                }
+              },
+              {
+                "name": "kpi_100000",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "in.total_confirmed/in.total_population * 100000",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "in.total_confirmed/in.total_population * 100000"
+                }
+              },
+              {
+                "name": "kpi_100",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "in.total_confirmed/in.total_population * 100",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "in.total_confirmed/in.total_population * 100"
+                }
+              },
+              {
+                "name": "total",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "in.total_confirmed",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "in.total_confirmed"
+                }
+              },
+              {
+                "name": "population",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "in.total_population",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "in.total_population"
+                }
+              }
+            ]
           },
           "editor": {
             "collapsed": false
           }
         },
         "editor": {
-          "showEntryVariables": false,
-          "showStringWriteFields": true,
-          "showResultVariables": false,
-          "showOutputFields": false
+          "showEntryVariables": true,
+          "showOutputFields": true
         },
         "model": {}
       },
       "pos": {
-        "x": 1738,
-        "y": 954
+        "x": 826,
+        "y": 906
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
+      "name": "Append Streams: Continent",
+      "type": "com.twineworks.tweakstreet.library.steps.select.append",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Append Streams: Continent",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "inputGates": {
+          "inputGates": {
+            "list": [
+              {
+                "name": "deaths"
+              },
+              {
+                "name": "confirmed"
+              }
+            ]
+          }
+        },
+        "editor": {},
+        "model": {}
+      },
+      "pos": {
+        "x": 1642,
+        "y": 842
       }
     }
   ],
@@ -5642,21 +5447,6 @@
       "id": "bf41eb62-32a3-4c5e-844f-5de688adc4b1",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
       "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "471f14ac-4cbe-48ee-8146-af26cb807648",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_37d5f456-aac8-4ac0-887b-9691c103cbc7",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false,
@@ -5864,21 +5654,6 @@
       }
     },
     {
-      "id": "a7706307-2ca5-46a6-9c62-96efddc146a6",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
       "id": "f15b76a0-a9f3-4134-b50e-8afdf7ad707a",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
       "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
@@ -5984,8 +5759,68 @@
       }
     },
     {
-      "id": "a4376791-9159-4c20-af1d-c3d14ce8d802",
+      "id": "62d96693-45a2-47f6-a8f0-310018131aff",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.streamlookup.streamlookup_cc0d3781-e6b5-4249-a12c-93b1eaada976",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_56136675-9c05-455e-8c82-7a73430ebcdf",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "01580ab6-cf05-4dc8-8d1a-f6faebb9a788",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_56136675-9c05-455e-8c82-7a73430ebcdf",
+      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_37d5f456-aac8-4ac0-887b-9691c103cbc7",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "c676f39a-da0d-46df-8dfa-4b77ed364fa0",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
+      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
+      "fromGate": "out",
+      "toGate": "deaths",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "5c65c766-f8fe-4cfb-901d-1ef131c5f6a9",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_85d659eb-cd8a-4512-bf6b-3d6a96433c6c",
+      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
+      "fromGate": "out",
+      "toGate": "confirmed",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "16804cfd-861d-4861-bad4-2910ed5e2b65",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
       "fromGate": "out",
       "toGate": "in",
@@ -5999,9 +5834,9 @@
       }
     },
     {
-      "id": "5a9cc8ec-62ce-40cf-8314-b6e541c56496",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_85d659eb-cd8a-4512-bf6b-3d6a96433c6c",
-      "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_5030ee66-925a-408f-9e43-6abd11071c34",
+      "id": "e8e60a0e-8394-40ca-9d38-f64832c42633",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.group.groupby_f6eeb5a1-64f6-4351-b465-766e66906a70",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false,
@@ -6014,8 +5849,38 @@
       }
     },
     {
-      "id": "108ece61-042c-4e4e-aa04-611df7944fa4",
+      "id": "cbbc58e5-30a9-41a0-a9a9-0cb516b5ee6c",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
+      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "260365e8-7496-4fac-9804-c7465b6e956c",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_45592289-d6fc-44bf-bcd0-32676cc02636",
+      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
+      "fromGate": "out",
+      "toGate": "deaths",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "88be9088-740a-4c43-9526-6093f148fe51",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_b40fba10-56bf-4051-b316-4a490dda3e36",
       "fromGate": "out",
       "toGate": "in",
@@ -6029,11 +5894,11 @@
       }
     },
     {
-      "id": "041bdc6c-c706-49fc-aa54-0a705731740f",
+      "id": "36b817ff-7b7f-460f-96c2-96530e626de1",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
-      "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_1a063661-f621-437a-9398-04e3858e1a11",
+      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
       "fromGate": "out",
-      "toGate": "in",
+      "toGate": "confirmed",
       "disabled": false,
       "partitioner": {
         "widgetType": "expression/code",
