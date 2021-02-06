@@ -1564,7 +1564,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1386,
+        "x": 1082,
         "y": 458
       }
     },
@@ -2018,7 +2018,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
-      "name": "Sort: deaths per population",
+      "name": "Sort: per country and date",
       "type": "com.twineworks.tweakstreet.library.steps.sort.sort",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -2029,7 +2029,7 @@
       },
       "data": {
         "meta": {
-          "name": "Sort: deaths per population",
+          "name": "Sort: per country and date",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -2086,15 +2086,22 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "filedate"
+                        "name": "Country_Region"
                       }
                     }
                   },
-                  "code": "::in.filedate"
+                  "code": "::in.Country_Region"
                 },
                 "comparator": {
-                  "widgetType": "expression/compare-datetime",
+                  "widgetType": "expression/compare-string",
                   "widgetData": {
+                    "caseSensitive": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
                     "nilOrder": {
                       "widgetType": "expression/select",
                       "widgetData": {
@@ -2108,15 +2115,15 @@
                     },
                     "model": {}
                   },
-                  "code": "let {\n  make_comparator: (string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$datetime_comparator'};\n}\nmake_comparator('first')\n"
+                  "code": "let {\n  make_comparator: (boolean caseSensitive, string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$string_comparator'};\n}\nmake_comparator(true, 'first')\n"
                 },
                 "direction": {
                   "widgetType": "expression/select",
                   "widgetData": {
                     "family": "expression/select/orderDirection",
-                    "value": "descending"
+                    "value": "ascending"
                   },
-                  "code": "'descending'"
+                  "code": "'ascending'"
                 }
               },
               {
@@ -2126,118 +2133,46 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
-                        "name": "kpi_100000"
+                        "name": "type"
                       }
                     }
                   },
-                  "code": "::in.kpi_100000"
+                  "code": "::in.type"
                 },
                 "comparator": {
-                  "widgetType": "expression/compare-number",
+                  "widgetType": "expression/compare-string",
                   "widgetData": {
-                    "nonNumeric": {
+                    "caseSensitive": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
+                    "nilOrder": {
                       "widgetType": "expression/select",
                       "widgetData": {
-                        "family": "expression/select/orderNonNumeric",
-                        "value": "nil_NaN_num"
+                        "family": "expression/select/orderFirstLast",
+                        "value": "first"
                       },
-                      "code": "'nil_NaN_num'"
+                      "code": "'first'"
                     },
                     "editor": {
                       "collapsed": true
                     },
                     "model": {}
                   },
-                  "code": "let {\n  make_comparator: (string nonNumeric) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$number_comparator'};\n}\nmake_comparator('nil_NaN_num')\n"
+                  "code": "let {\n  make_comparator: (boolean caseSensitive, string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$string_comparator'};\n}\nmake_comparator(true, 'first')\n"
                 },
                 "direction": {
                   "widgetType": "expression/select",
                   "widgetData": {
                     "family": "expression/select/orderDirection",
-                    "value": "descending"
+                    "value": "ascending"
                   },
-                  "code": "'descending'"
-                }
-              }
-            ]
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "editor": {
-          "showEntryVariables": false
-        },
-        "model": {}
-      },
-      "pos": {
-        "x": 1082,
-        "y": 458
-      }
-    },
-    {
-      "id": "com.twineworks.tweakstreet.library.steps.sort.sort_37d5f456-aac8-4ac0-887b-9691c103cbc7",
-      "name": "Sort: confirmed per population",
-      "type": "com.twineworks.tweakstreet.library.steps.sort.sort",
-      "instanceCount": {
-        "widgetType": "expression/number",
-        "widgetData": {
-          "text": "1"
-        },
-        "code": "1"
-      },
-      "data": {
-        "meta": {
-          "name": "Sort: confirmed per population",
-          "showingComment": false,
-          "comment": {
-            "markdown": {
-              "text": {
-                "text": "",
-                "syntax": "markdown",
-                "size": {
-                  "width": "100%",
-                  "height": "100%"
+                  "code": "'ascending'"
                 }
               },
-              "size": {
-                "width": null,
-                "height": 160
-              },
-              "view": "edit"
-            },
-            "editor": {
-              "collapsed": true
-            }
-          }
-        },
-        "entryVariables": {
-          "variables": {
-            "list": []
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "inMemoryCapacity": {
-          "widgetType": "expression/number",
-          "widgetData": {
-            "text": "100_000"
-          },
-          "code": "100_000"
-        },
-        "tmpFolder": {
-          "widgetType": "expression/local-file",
-          "widgetData": {
-            "interpolation": true,
-            "text": "",
-            "dialogIntent": "openFolder"
-          },
-          "code": "''"
-        },
-        "sortOrders": {
-          "sortOrders": {
-            "list": [
               {
                 "subject": {
                   "widgetType": "expression/field-value-ref",
@@ -2277,46 +2212,6 @@
                   },
                   "code": "'descending'"
                 }
-              },
-              {
-                "subject": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_100000"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_100000"
-                },
-                "comparator": {
-                  "widgetType": "expression/compare-number",
-                  "widgetData": {
-                    "nonNumeric": {
-                      "widgetType": "expression/select",
-                      "widgetData": {
-                        "family": "expression/select/orderNonNumeric",
-                        "value": "nil_NaN_num"
-                      },
-                      "code": "'nil_NaN_num'"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_comparator: (string nonNumeric) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$number_comparator'};\n}\nmake_comparator('nil_NaN_num')\n"
-                },
-                "direction": {
-                  "widgetType": "expression/select",
-                  "widgetData": {
-                    "family": "expression/select/orderDirection",
-                    "value": "descending"
-                  },
-                  "code": "'descending'"
-                }
               }
             ]
           },
@@ -2330,8 +2225,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1082,
-        "y": 602
+        "x": 1610,
+        "y": 538
       }
     },
     {
@@ -2450,7 +2345,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1386,
+        "x": 1082,
         "y": 602
       }
     },
@@ -3455,13 +3350,13 @@
         "model": {}
       },
       "pos": {
-        "x": 1386,
+        "x": 1082,
         "y": 762
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
-      "name": "Sort: deaths per population",
+      "name": "Sort: per continent and date",
       "type": "com.twineworks.tweakstreet.library.steps.sort.sort",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -3472,7 +3367,7 @@
       },
       "data": {
         "meta": {
-          "name": "Sort: deaths per population",
+          "name": "Sort: per continent and date",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -3529,6 +3424,100 @@
                     "fieldSelect": {
                       "value": {
                         "gate": "in",
+                        "name": "continent_name"
+                      }
+                    }
+                  },
+                  "code": "::in.continent_name"
+                },
+                "comparator": {
+                  "widgetType": "expression/compare-string",
+                  "widgetData": {
+                    "caseSensitive": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
+                    "nilOrder": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/orderFirstLast",
+                        "value": "first"
+                      },
+                      "code": "'first'"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_comparator: (boolean caseSensitive, string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$string_comparator'};\n}\nmake_comparator(true, 'first')\n"
+                },
+                "direction": {
+                  "widgetType": "expression/select",
+                  "widgetData": {
+                    "family": "expression/select/orderDirection",
+                    "value": "ascending"
+                  },
+                  "code": "'ascending'"
+                }
+              },
+              {
+                "subject": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "type"
+                      }
+                    }
+                  },
+                  "code": "::in.type"
+                },
+                "comparator": {
+                  "widgetType": "expression/compare-string",
+                  "widgetData": {
+                    "caseSensitive": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
+                    "nilOrder": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/orderFirstLast",
+                        "value": "first"
+                      },
+                      "code": "'first'"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_comparator: (boolean caseSensitive, string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$string_comparator'};\n}\nmake_comparator(true, 'first')\n"
+                },
+                "direction": {
+                  "widgetType": "expression/select",
+                  "widgetData": {
+                    "family": "expression/select/orderDirection",
+                    "value": "ascending"
+                  },
+                  "code": "'ascending'"
+                }
+              },
+              {
+                "subject": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
                         "name": "filedate"
                       }
                     }
@@ -3561,46 +3550,6 @@
                   },
                   "code": "'descending'"
                 }
-              },
-              {
-                "subject": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_100000"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_100000"
-                },
-                "comparator": {
-                  "widgetType": "expression/compare-number",
-                  "widgetData": {
-                    "nonNumeric": {
-                      "widgetType": "expression/select",
-                      "widgetData": {
-                        "family": "expression/select/orderNonNumeric",
-                        "value": "nil_NaN_num"
-                      },
-                      "code": "'nil_NaN_num'"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_comparator: (string nonNumeric) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$number_comparator'};\n}\nmake_comparator('nil_NaN_num')\n"
-                },
-                "direction": {
-                  "widgetType": "expression/select",
-                  "widgetData": {
-                    "family": "expression/select/orderDirection",
-                    "value": "descending"
-                  },
-                  "code": "'descending'"
-                }
               }
             ]
           },
@@ -3614,8 +3563,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1082,
-        "y": 762
+        "x": 1626,
+        "y": 826
       }
     },
     {
@@ -3964,165 +3913,6 @@
           }
         },
         "editor": {},
-        "model": {}
-      },
-      "pos": {
-        "x": 1386,
-        "y": 906
-      }
-    },
-    {
-      "id": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
-      "name": "Sort: confirmed per population",
-      "type": "com.twineworks.tweakstreet.library.steps.sort.sort",
-      "instanceCount": {
-        "widgetType": "expression/number",
-        "widgetData": {
-          "text": "1"
-        },
-        "code": "1"
-      },
-      "data": {
-        "meta": {
-          "name": "Sort: confirmed per population",
-          "showingComment": false,
-          "comment": {
-            "markdown": {
-              "text": {
-                "text": "",
-                "syntax": "markdown",
-                "size": {
-                  "width": "100%",
-                  "height": "100%"
-                }
-              },
-              "size": {
-                "width": null,
-                "height": 160
-              },
-              "view": "edit"
-            },
-            "editor": {
-              "collapsed": true
-            }
-          }
-        },
-        "entryVariables": {
-          "variables": {
-            "list": []
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "inMemoryCapacity": {
-          "widgetType": "expression/number",
-          "widgetData": {
-            "text": "100_000"
-          },
-          "code": "100_000"
-        },
-        "tmpFolder": {
-          "widgetType": "expression/local-file",
-          "widgetData": {
-            "interpolation": true,
-            "text": "",
-            "dialogIntent": "openFolder"
-          },
-          "code": "''"
-        },
-        "sortOrders": {
-          "sortOrders": {
-            "list": [
-              {
-                "subject": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "filedate"
-                      }
-                    }
-                  },
-                  "code": "::in.filedate"
-                },
-                "comparator": {
-                  "widgetType": "expression/compare-datetime",
-                  "widgetData": {
-                    "nilOrder": {
-                      "widgetType": "expression/select",
-                      "widgetData": {
-                        "family": "expression/select/orderFirstLast",
-                        "value": "first"
-                      },
-                      "code": "'first'"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_comparator: (string nilOrder) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$datetime_comparator'};\n}\nmake_comparator('first')\n"
-                },
-                "direction": {
-                  "widgetType": "expression/select",
-                  "widgetData": {
-                    "family": "expression/select/orderDirection",
-                    "value": "descending"
-                  },
-                  "code": "'descending'"
-                }
-              },
-              {
-                "subject": {
-                  "widgetType": "expression/field-value-ref",
-                  "widgetData": {
-                    "fieldSelect": {
-                      "value": {
-                        "gate": "in",
-                        "name": "kpi_100000"
-                      }
-                    }
-                  },
-                  "code": "::in.kpi_100000"
-                },
-                "comparator": {
-                  "widgetType": "expression/compare-number",
-                  "widgetData": {
-                    "nonNumeric": {
-                      "widgetType": "expression/select",
-                      "widgetData": {
-                        "family": "expression/select/orderNonNumeric",
-                        "value": "nil_NaN_num"
-                      },
-                      "code": "'nil_NaN_num'"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_comparator: (string nonNumeric) -> function via {:class 'com.twineworks.tweakstreet.library.sorting.Comparators$number_comparator'};\n}\nmake_comparator('nil_NaN_num')\n"
-                },
-                "direction": {
-                  "widgetType": "expression/select",
-                  "widgetData": {
-                    "family": "expression/select/orderDirection",
-                    "value": "descending"
-                  },
-                  "code": "'descending'"
-                }
-              }
-            ]
-          },
-          "editor": {
-            "collapsed": false
-          }
-        },
-        "editor": {
-          "showEntryVariables": false
-        },
         "model": {}
       },
       "pos": {
@@ -4725,12 +4515,12 @@
       },
       "pos": {
         "x": 1914,
-        "y": 522
+        "y": 538
       }
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_b40fba10-56bf-4051-b316-4a490dda3e36",
-      "name": "CSV Output: deaths per continent",
+      "name": "CSV Output: confirmed/deaths per continent",
       "type": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -4741,7 +4531,7 @@
       },
       "data": {
         "meta": {
-          "name": "CSV Output: deaths per continent",
+          "name": "CSV Output: confirmed/deaths per continent",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -5046,8 +4836,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1914,
-        "y": 842
+        "x": 1930,
+        "y": 826
       }
     },
     {
@@ -5102,8 +4892,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1642,
-        "y": 522
+        "x": 1386,
+        "y": 538
       }
     },
     {
@@ -5422,8 +5212,8 @@
         "model": {}
       },
       "pos": {
-        "x": 1642,
-        "y": 842
+        "x": 1386,
+        "y": 826
       }
     }
   ],
@@ -5432,51 +5222,6 @@
       "id": "8c2b9649-2262-4163-ae41-3bf36a6f6627",
       "fromStep": "com.twineworks.tweakstreet.library.steps.group.groupby_a5ecc6f2-5c4f-42de-bd6b-8870dc9467be",
       "toStep": "com.twineworks.tweakstreet.library.steps.streamlookup.streamlookup_cc0d3781-e6b5-4249-a12c-93b1eaada976",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "bf41eb62-32a3-4c5e-844f-5de688adc4b1",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "e7f5b321-db4c-4e29-bce5-7bd40f046e0f",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "ef0f29df-4bec-4a15-987a-019c52ea5430",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_37d5f456-aac8-4ac0-887b-9691c103cbc7",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_85d659eb-cd8a-4512-bf6b-3d6a96433c6c",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false,
@@ -5509,21 +5254,6 @@
       "toStep": "com.twineworks.tweakstreet.library.steps.streamlookup.streamlookup_6c6bd1eb-e0ca-41da-aff7-3835e4654e8f",
       "fromGate": "out",
       "toGate": "lookup",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "76f966df-1b75-4c22-91c7-b81ba6895ddc",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_45592289-d6fc-44bf-bcd0-32676cc02636",
-      "fromGate": "out",
-      "toGate": "in",
       "disabled": false,
       "partitioner": {
         "widgetType": "expression/code",
@@ -5567,21 +5297,6 @@
       "id": "b0c57723-6029-4ce8-84fe-624fa4b4443c",
       "fromStep": "com.twineworks.tweakstreet.library.steps.streamlookup.streamlookup_cc0d3781-e6b5-4249-a12c-93b1eaada976",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "d2c6aa4c-b946-4687-abf3-9492887ac862",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false,
@@ -5643,21 +5358,6 @@
       "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_f8e6e56c-4320-4a4f-92fc-2843965664e4",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.dummy_94d85d5b-172d-46e0-9603-492001992d30",
       "fromGate": "no",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "f15b76a0-a9f3-4134-b50e-8afdf7ad707a",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
-      "fromGate": "out",
       "toGate": "in",
       "disabled": false,
       "partitioner": {
@@ -5774,21 +5474,6 @@
       }
     },
     {
-      "id": "01580ab6-cf05-4dc8-8d1a-f6faebb9a788",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_56136675-9c05-455e-8c82-7a73430ebcdf",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_37d5f456-aac8-4ac0-887b-9691c103cbc7",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
       "id": "c676f39a-da0d-46df-8dfa-4b77ed364fa0",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
       "toStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
@@ -5819,39 +5504,9 @@
       }
     },
     {
-      "id": "16804cfd-861d-4861-bad4-2910ed5e2b65",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
-      "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
       "id": "e8e60a0e-8394-40ca-9d38-f64832c42633",
       "fromStep": "com.twineworks.tweakstreet.library.steps.group.groupby_f6eeb5a1-64f6-4351-b465-766e66906a70",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "cbbc58e5-30a9-41a0-a9a9-0cb516b5ee6c",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
-      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_6febd1a1-e4a6-41f5-a44d-2163764e1af7",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false,
@@ -5879,8 +5534,113 @@
       }
     },
     {
-      "id": "88be9088-740a-4c43-9526-6093f148fe51",
+      "id": "36b817ff-7b7f-460f-96c2-96530e626de1",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
+      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
+      "fromGate": "out",
+      "toGate": "confirmed",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "734047e7-9077-441d-b06f-3641c07c66d2",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f07ff59b-6a5b-42c1-8ef2-87e64d1c2b9a",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "f8dd6eae-1664-4486-8965-566dc3160b1b",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.select.append_0cdda078-8615-4d49-aa46-19310765ce45",
+      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "87643aa4-9f4e-46bd-9062-19f46e817a8f",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
+      "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "756e76ac-b353-4f0a-93e8-f69a86736882",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_56136675-9c05-455e-8c82-7a73430ebcdf",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_85d659eb-cd8a-4512-bf6b-3d6a96433c6c",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "58da98cb-d79a-4e8f-b82c-f85b65965612",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_fb3a460e-1d69-49de-ba2f-968cdbf5428c",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_45592289-d6fc-44bf-bcd0-32676cc02636",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "694da33e-2835-432c-8927-8c00c766d9e2",
       "fromStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
+      "toStep": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "66f661b6-d0f5-48e6-a61c-efa7e4da6765",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_5896cbe9-1d5d-465c-8386-cbea66a5a138",
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_b40fba10-56bf-4051-b316-4a490dda3e36",
       "fromGate": "out",
       "toGate": "in",
@@ -5894,11 +5654,11 @@
       }
     },
     {
-      "id": "36b817ff-7b7f-460f-96c2-96530e626de1",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
-      "toStep": "com.twineworks.tweakstreet.library.steps.select.append_2188ba47-ca03-4280-b425-3cecb585542f",
+      "id": "cfceae1e-e281-4a85-931c-7986786bd376",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_bb714da4-15e1-4f53-b6fc-b60be104ac94",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_e8ba1cdb-54c4-4626-a96f-0e60e0d6ae71",
       "fromGate": "out",
-      "toGate": "confirmed",
+      "toGate": "in",
       "disabled": false,
       "partitioner": {
         "widgetType": "expression/code",
