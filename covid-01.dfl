@@ -5672,14 +5672,14 @@
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "if vars.same_country_type \n  then in.total - in.next[:total]\n  else 0",
+                    "text": "if vars.same_country_type\nthen \n  in.total - in.next[:total] \nelse  0",
                     "size": {
                       "width": 0,
-                      "height": 96
+                      "height": 103
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "if vars.same_country_type \n  then in.total - in.next[:total]\n  else 0"
+                  "code": "if vars.same_country_type\nthen \n  in.total - in.next[:total] \nelse  0"
                 }
               },
               {
@@ -5688,14 +5688,14 @@
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "if vars.same_country_type \n  then (increase_total) / in.next[:total] * 100\n  else 0",
+                    "text": "if vars.same_country_type and in.next[:total]!=0\nthen \n  increase_total / in.next[:total] * 100\nelse 0",
                     "size": {
                       "width": 0,
-                      "height": 98
+                      "height": 104
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "if vars.same_country_type \n  then (increase_total) / in.next[:total] * 100\n  else 0"
+                  "code": "if vars.same_country_type and in.next[:total]!=0\nthen \n  increase_total / in.next[:total] * 100\nelse 0"
                 }
               }
             ]
@@ -5707,7 +5707,7 @@
         "editor": {
           "showEntryVariables": true,
           "showOutputFields": true,
-          "dialogWidth": "wide"
+          "dialogWidth": "stretch"
         },
         "model": {}
       },
@@ -5786,14 +5786,14 @@
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "if vars.same_continent_type \n  then in.total - in.next[:total]\n  else 0",
+                    "text": "if vars.same_continent_type \nthen\n  in.total - in.next[:total]\nelse 0",
                     "size": {
                       "width": 0,
-                      "height": 96
+                      "height": 103
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "if vars.same_continent_type \n  then in.total - in.next[:total]\n  else 0"
+                  "code": "if vars.same_continent_type \nthen\n  in.total - in.next[:total]\nelse 0"
                 }
               },
               {
@@ -5802,14 +5802,14 @@
                 "value": {
                   "widgetType": "expression/code",
                   "widgetData": {
-                    "text": "if vars.same_continent_type \n  then (increase_total) / in.next[:total] * 100\n  else 0",
+                    "text": "if vars.same_continent_type and in.next[:total]!=0\nthen\n  increase_total / in.next[:total] * 100\nelse 0",
                     "size": {
                       "width": 0,
-                      "height": 98
+                      "height": 110
                     },
                     "syntax": "tweakflow"
                   },
-                  "code": "if vars.same_continent_type \n  then (increase_total) / in.next[:total] * 100\n  else 0"
+                  "code": "if vars.same_continent_type and in.next[:total]!=0\nthen\n  increase_total / in.next[:total] * 100\nelse 0"
                 }
               }
             ]
