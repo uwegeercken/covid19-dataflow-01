@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "##### INFO\n\nFlow calculates the Covid-19 confirmed and death cases for a given date for each country and additionally for each continent. KPI's are available relating the numbers to the total population of the country and continent.\n\nThere are two KPI's available: cases per 100 people of population and cases per 100000 people of population.\n\n**Note**: The data used originates from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE): https://github.com/CSSEGISandData/COVID-19\n\n",
+            "text": "##### INFO\n\nFlow calculates the Covid-19 confirmed and death cases for a given date for each country and additionally for each continent. KPI's are available relating the numbers to the total population of the country and continent.\n\nThere are two KPI's available: cases per 100 people of population and cases per 100000 people of population.\n\nOne or multiple files with the same structure can be processed - e.g. for a month or year.\n\n**Note**: The data used originates from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE): https://github.com/CSSEGISandData/COVID-19\n\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
