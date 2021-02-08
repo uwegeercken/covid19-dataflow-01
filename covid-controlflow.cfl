@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "##### INFO\n\nCalculates the confirmed and death cases per country and continent and calculates  a KPI based on the population.\n\nThe variable _root_folder_data_ defines, where the Covid-19 data files are located. The data can be cloned from GitHub here: https://github.com/CSSEGISandData/COVID-19\n\nThe \"Find Files\" step collects all files to be processed using a regular expression and passes the file info to the dataflow.\n",
+            "text": "##### INFO\n\nCalculates the confirmed and death cases per country and continent and calculates values based on the population. Also\ncalculates the increase to the previous day and the increased percentage.\n\nThe variable _root_folder_data_ defines, where the Covid-19 data files are located. The data can be cloned from GitHub here: https://github.com/CSSEGISandData/COVID-19\n\nThe \"Find Files\" step collects all files to be processed using a regular expression and passes the file info to the dataflow.\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -35,7 +35,7 @@
       "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\nimport strings, data from 'std';",
       "size": {
         "width": 0,
-        "height": 102
+        "height": 80
       },
       "editor": {
         "collapsed": false
@@ -370,9 +370,9 @@
           "widgetType": "expression/string",
           "widgetData": {
             "interpolation": true,
-            "text": ".*/[0-9]{2}-[0-9]{2}-2021.csv"
+            "text": ".*/[0-9]{2}-[0-9]{2}-202[0-9].csv"
           },
-          "code": "'.*/[0-9]{2}-[0-9]{2}-2021.csv'"
+          "code": "'.*/[0-9]{2}-[0-9]{2}-202[0-9].csv'"
         },
         "filter": {
           "widgetType": "expression/code",
