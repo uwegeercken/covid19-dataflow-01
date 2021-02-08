@@ -13,8 +13,6 @@ Two files are output:
   - a file containing the numbers per country
   - a file containing the numbers per continent
   
-For each country or continent two lines per date (from the input file's name) are generated: one for confirmed cases and one for death cases.
-
 Files are sorted by date (descending), type (confirmed or deaths, ascending) and country respectively continent (ascending).
 
 Following steps to run the flow:
@@ -23,9 +21,9 @@ Following steps to run the flow:
 - clone this repository: https://github.com/uwegeercken/covid19-dataflow-01
 - open the controlflow "covid-controlflow.cfl" in the Tweakstreet tool
 - in the controflow properties, adjust the path (root_folder_data variable) to the Johns Hopkins University data
-- optionally, in the controlflow modify the "Find Files" step to use the desired list of files. per default all CSV files of year 2021 are used.
+- optionally, in the controlflow modify the "Find Files" step to use the desired list of files. Per default all CSV files of year 2021 are used.
 - run the flow
 
-Note: the CSV output files are created in the folder where the flow is located. You can adjust the path in the dataflow CSV output steps.
+Note: the CSV output files are created in the data/output folder. You can adjust the path in the dataflow CSV output steps.
 
-last update: uwe.geercken@web.de - 2021-02-06
+last update: uwe.geercken@web.de - 2021-02-08
