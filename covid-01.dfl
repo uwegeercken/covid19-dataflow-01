@@ -826,98 +826,6 @@
           "readFields": {
             "list": [
               {
-                "name": "FIPS",
-                "type": "long",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "FIPS"
-                  },
-                  "code": "'FIPS'"
-                },
-                "conversion": {
-                  "widgetType": "expression/parse-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "0"
-                      },
-                      "code": "'0'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "trim": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "parseDecimal": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": false
-                      },
-                      "code": "false"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('0', 'en-US', true, '', false)\n"
-                }
-              },
-              {
-                "name": "Admin2",
-                "type": "string",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Admin2"
-                  },
-                  "code": "'Admin2'"
-                },
-                "conversion": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "Province_State",
-                "type": "string",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Province_State"
-                  },
-                  "code": "'Province_State'"
-                },
-                "conversion": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
                 "name": "Country_Region",
                 "type": "string",
                 "mapping": {
@@ -932,139 +840,6 @@
                   "widgetType": "expression/nil",
                   "widgetData": {},
                   "code": "nil"
-                }
-              },
-              {
-                "name": "Last_Update",
-                "type": "string",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Last_Update"
-                  },
-                  "code": "'Last_Update'"
-                },
-                "conversion": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
-              },
-              {
-                "name": "Lat",
-                "type": "decimal",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Lat"
-                  },
-                  "code": "'Lat'"
-                },
-                "conversion": {
-                  "widgetType": "expression/parse-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "#,##0.#"
-                      },
-                      "code": "'#,##0.#'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "trim": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "parseDecimal": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('#,##0.#', 'en-US', true, '', true)\n"
-                }
-              },
-              {
-                "name": "Long_",
-                "type": "decimal",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Long_"
-                  },
-                  "code": "'Long_'"
-                },
-                "conversion": {
-                  "widgetType": "expression/parse-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "#,##0.#"
-                      },
-                      "code": "'#,##0.#'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "trim": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "parseDecimal": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('#,##0.#', 'en-US', true, '', true)\n"
                 }
               },
               {
@@ -1182,139 +957,6 @@
                   },
                   "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('0', 'en-US', true, '', false)\n"
                 }
-              },
-              {
-                "name": "Recovered",
-                "type": "long",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Recovered"
-                  },
-                  "code": "'Recovered'"
-                },
-                "conversion": {
-                  "widgetType": "expression/parse-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "0"
-                      },
-                      "code": "'0'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "trim": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "parseDecimal": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": false
-                      },
-                      "code": "false"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('0', 'en-US', true, '', false)\n"
-                }
-              },
-              {
-                "name": "Active",
-                "type": "long",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Active"
-                  },
-                  "code": "'Active'"
-                },
-                "conversion": {
-                  "widgetType": "expression/parse-number",
-                  "widgetData": {
-                    "pattern": {
-                      "widgetType": "expression/number-pattern",
-                      "widgetData": {
-                        "value": "0"
-                      },
-                      "code": "'0'"
-                    },
-                    "locale": {
-                      "widgetType": "expression/locale",
-                      "widgetData": {
-                        "value": "en-US"
-                      },
-                      "code": "'en-US'"
-                    },
-                    "trim": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": true
-                      },
-                      "code": "true"
-                    },
-                    "nilValue": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": ""
-                      },
-                      "code": "''"
-                    },
-                    "parseDecimal": {
-                      "widgetType": "expression/checkbox-boolean",
-                      "widgetData": {
-                        "value": false
-                      },
-                      "code": "false"
-                    },
-                    "editor": {
-                      "collapsed": true
-                    },
-                    "model": {}
-                  },
-                  "code": "let {\n  make_parser: (string pattern, string locale, boolean trim, string nilValue, boolean parseDecimal) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$number_parser'};\n}\nmake_parser('0', 'en-US', true, '', false)\n"
-                }
-              },
-              {
-                "name": "Combined_Key",
-                "type": "string",
-                "mapping": {
-                  "widgetType": "expression/string",
-                  "widgetData": {
-                    "interpolation": true,
-                    "text": "Combined_Key"
-                  },
-                  "code": "'Combined_Key'"
-                },
-                "conversion": {
-                  "widgetType": "expression/nil",
-                  "widgetData": {},
-                  "code": "nil"
-                }
               }
             ]
           },
@@ -1346,8 +988,8 @@
         "model": {}
       },
       "pos": {
-        "x": 186,
-        "y": 266
+        "x": 170,
+        "y": 410
       }
     },
     {
@@ -1796,7 +1438,7 @@
       },
       "pos": {
         "x": 410,
-        "y": 266
+        "y": 410
       }
     },
     {
@@ -3100,7 +2742,7 @@
         "model": {}
       },
       "pos": {
-        "x": 186,
+        "x": 154,
         "y": 586
       }
     },
@@ -3387,6 +3029,54 @@
                 }
               },
               {
+                "name": "fields_ok",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "results.item[:fields_ok]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "results.item[:fields_ok]"
+                }
+              },
+              {
+                "name": "fields_present",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "results.item[:fields_present]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "results.item[:fields_present]"
+                }
+              },
+              {
+                "name": "fields_required",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "results.item[:fields_required]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "results.item[:fields_required]"
+                }
+              },
+              {
                 "name": "filedate",
                 "type": "datetime",
                 "value": {
@@ -3416,51 +3106,7 @@
         "model": {}
       },
       "pos": {
-        "x": 186,
-        "y": 90
-      }
-    },
-    {
-      "id": "com.twineworks.tweakstreet.library.steps.map.dummy_61b9a0b9-6d48-490c-810a-748284564106",
-      "name": "Dummy: files with issues",
-      "type": "com.twineworks.tweakstreet.library.steps.map.dummy",
-      "instanceCount": {
-        "widgetType": "expression/number",
-        "widgetData": {
-          "text": "1"
-        },
-        "code": "1"
-      },
-      "data": {
-        "meta": {
-          "name": "Dummy: files with issues",
-          "showingComment": false,
-          "comment": {
-            "markdown": {
-              "text": {
-                "text": "",
-                "syntax": "markdown",
-                "size": {
-                  "width": "100%",
-                  "height": "100%"
-                }
-              },
-              "size": {
-                "width": null,
-                "height": 160
-              },
-              "view": "edit"
-            },
-            "editor": {
-              "collapsed": true
-            }
-          }
-        },
-        "editor": {},
-        "model": {}
-      },
-      "pos": {
-        "x": 410,
+        "x": 170,
         "y": 90
       }
     },
@@ -5535,6 +5181,189 @@
         "x": 1178,
         "y": 730
       }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
+      "name": "Filter",
+      "type": "com.twineworks.tweakstreet.library.steps.bool.filter",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Filter",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "condition": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "in.fields_ok",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "in.fields_ok"
+        },
+        "editor": {
+          "showEntryVariables": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 170,
+        "y": 250
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.logger_c62a72f5-5c78-4920-8660-76f1b684c0e3",
+      "name": "Logger: invalid files",
+      "type": "com.twineworks.tweakstreet.library.steps.map.logger",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Logger: invalid files",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "message": {
+          "widgetType": "expression/text",
+          "widgetData": {
+            "text": "file with invalid or missing fields:",
+            "size": {
+              "width": 0,
+              "height": 68
+            },
+            "syntax": "text",
+            "lineSeparator": "\n",
+            "interpolation": true
+          },
+          "code": "'file with invalid or missing fields:'"
+        },
+        "logValues": {
+          "widgetType": "expression/data-grid",
+          "widgetData": {
+            "fields": [
+              {
+                "id": "name",
+                "name": "name"
+              },
+              {
+                "id": "value",
+                "name": "value"
+              }
+            ],
+            "gen": {
+              "as": "rows",
+              "of": "dict",
+              "meta": false
+            },
+            "table": {
+              "list": [
+                {
+                  "fields": {
+                    "name": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": "file"
+                      },
+                      "code": "'file'"
+                    },
+                    "value": {
+                      "widgetType": "expression/code",
+                      "widgetData": {
+                        "text": "{\n  :path row[:filepath],\n  :fields_required row[:fields_required],\n  :fields_present row[:fields_present]\n}",
+                        "size": {
+                          "width": 0,
+                          "height": 164
+                        },
+                        "syntax": "tweakflow"
+                      },
+                      "code": "{\n  :path row[:filepath],\n  :fields_required row[:fields_required],\n  :fields_present row[:fields_present]\n}"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "code": "[{\n  :name 'file',\n  :value {\n  :path row[:filepath],\n  :fields_required row[:fields_required],\n  :fields_present row[:fields_present]\n}\n}]"
+        },
+        "editor": {
+          "showEntryVariables": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 410,
+        "y": 250
+      }
     }
   ],
   "hops": [
@@ -5704,36 +5533,6 @@
       }
     },
     {
-      "id": "6c70ace2-3710-44c2-9bb3-bf767e071a8f",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.flatmap.getitems_8bcc6cb2-ae1d-444f-a8a7-80d86529f776",
-      "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
-      "id": "c0500c66-ff23-4d07-8d80-3670fb6c1c6c",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.dummy_61b9a0b9-6d48-490c-810a-748284564106",
-      "fromGate": "error",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
       "id": "9626c9fd-6143-4a23-91dc-6244b6b7a6fc",
       "fromStep": "com.twineworks.tweakstreet.library.steps.sort.sort_d467d299-4b52-4094-8806-767822af37f0",
       "toStep": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_06665af1-9116-486e-8db2-2046ee13b263",
@@ -5873,6 +5672,51 @@
       "fromStep": "com.twineworks.tweakstreet.library.steps.streamlookup.streamlookup_cc0d3781-e6b5-4249-a12c-93b1eaada976",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.pickfields_08a3b8ea-122d-4f9b-b2f2-2cdc594a6084",
       "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "561766c5-a7eb-4c45-8d1d-a62da95998d5",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.flatmap.getitems_8bcc6cb2-ae1d-444f-a8a7-80d86529f776",
+      "toStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "6aa22d8f-bf1f-4251-982c-55be334e881d",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
+      "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
+      "fromGate": "yes",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "fd9d1e22-e8fc-4add-b62e-e54266bfe466",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_c62a72f5-5c78-4920-8660-76f1b684c0e3",
+      "fromGate": "no",
       "toGate": "in",
       "disabled": false,
       "partitioner": {

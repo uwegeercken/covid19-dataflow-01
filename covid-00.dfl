@@ -1,0 +1,1211 @@
+{
+  "type": "data-flow",
+  "appVersion": "1.14.2",
+  "properties": {
+    "meta": {
+      "comment": {
+        "markdown": {
+          "text": {
+            "text": "",
+            "syntax": "markdown",
+            "size": {
+              "width": "100%",
+              "height": "100%"
+            }
+          },
+          "size": {
+            "width": null,
+            "height": 160
+          },
+          "view": "edit"
+        },
+        "editor": {
+          "collapsed": true
+        }
+      },
+      "showingComment": true
+    },
+    "editor": {
+      "showParameters": true,
+      "showVariables": true,
+      "showServices": true,
+      "dialogWidth": "wide"
+    },
+    "imports": {
+      "code": "# import the standard library\nimport core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
+      "size": {
+        "width": 0,
+        "height": 102
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "parameters": {
+      "parameters": {
+        "list": [
+          {
+            "name": "files",
+            "description": "",
+            "type": "list",
+            "defaultValue": {
+              "widgetType": "expression/list",
+              "widgetData": {
+                "table": {
+                  "list": []
+                }
+              },
+              "code": "[]"
+            }
+          }
+        ]
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "variables": {
+      "variables": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "services": {
+      "services": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.input.csvinput_bc7b3c62-aeb3-4cfa-ac55-142a46e4b693",
+      "name": "CSV Input: Covid Data",
+      "type": "com.twineworks.tweakstreet.library.steps.input.csvinput",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "CSV Input: Covid Data",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 36
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": false
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "tabs": {},
+        "fs": {
+          "widgetType": "expression/storage-ref",
+          "widgetData": {
+            "name": ""
+          },
+          "code": "nil"
+        },
+        "file": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "in.filepath",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "in.filepath"
+        },
+        "compression": {
+          "widgetType": "expression/select",
+          "widgetData": {
+            "family": "expression/select/compression",
+            "value": "none"
+          },
+          "code": "'none'"
+        },
+        "charset": {
+          "widgetType": "expression/charset",
+          "widgetData": {
+            "value": "UTF-8"
+          },
+          "code": "'UTF-8'"
+        },
+        "textFileContent": {
+          "text": "",
+          "fetchButton": {
+            "value": "100"
+          },
+          "size": {
+            "width": 0,
+            "height": 180
+          },
+          "editor": {
+            "collapsed": true
+          }
+        },
+        "skipLines": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "0"
+          },
+          "code": "0"
+        },
+        "rowLimit": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "1"
+          },
+          "code": "1"
+        },
+        "fieldSeparator": {
+          "widgetType": "expression/separator",
+          "widgetData": {
+            "value": "comma"
+          },
+          "code": "\",\""
+        },
+        "fieldEncloser": {
+          "widgetType": "expression/string",
+          "widgetData": {
+            "interpolation": true,
+            "text": "\""
+          },
+          "code": "'\"'"
+        },
+        "hasHeaderLine": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "readFields": {
+          "readFields": {
+            "list": [
+              {
+                "name": "field_0",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "0"
+                  },
+                  "code": "0"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_1",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "1"
+                  },
+                  "code": "1"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_2",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "2"
+                  },
+                  "code": "2"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_3",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "3"
+                  },
+                  "code": "3"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_4",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "4"
+                  },
+                  "code": "4"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_5",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "5"
+                  },
+                  "code": "5"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_6",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "6"
+                  },
+                  "code": "6"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_7",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "7"
+                  },
+                  "code": "7"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_8",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "8"
+                  },
+                  "code": "8"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_9",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "9"
+                  },
+                  "code": "9"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_10",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "10"
+                  },
+                  "code": "10"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              },
+              {
+                "name": "field_11",
+                "type": "string",
+                "mapping": {
+                  "widgetType": "expression/number",
+                  "widgetData": {
+                    "text": "11"
+                  },
+                  "code": "11"
+                },
+                "conversion": {
+                  "widgetType": "expression/nil",
+                  "widgetData": {},
+                  "code": "nil"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "header",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.values"
+                  },
+                  "code": "::results.values"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 602,
+        "y": 218
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.flatmap.getitems_5899067b-342b-4ac9-ad7c-f120fd6bcb79",
+      "name": "List to Rows: input files",
+      "type": "com.twineworks.tweakstreet.library.steps.flatmap.getitems",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "List to Rows: input files",
+          "showingComment": true,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "##### INFO\n\nProcesses a list of files but only the header row. The header row is compared against\nthe list of fields that are required to do a correct calculation.",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 134
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": false
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": [
+              {
+                "name": "parser",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/parse-datetime",
+                  "widgetData": {
+                    "pattern": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": "MM-dd-uuuu"
+                      },
+                      "code": "'MM-dd-uuuu'"
+                    },
+                    "locale": {
+                      "widgetType": "expression/locale",
+                      "widgetData": {
+                        "value": "en-US"
+                      },
+                      "code": "'en-US'"
+                    },
+                    "defaultTz": {
+                      "widgetType": "expression/timezone",
+                      "widgetData": {
+                        "value": "Europe/Zurich"
+                      },
+                      "code": "'Europe/Zurich'"
+                    },
+                    "trim": {
+                      "widgetType": "expression/checkbox-boolean",
+                      "widgetData": {
+                        "value": true
+                      },
+                      "code": "true"
+                    },
+                    "nilValue": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": ""
+                      },
+                      "code": "''"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_parser: (string pattern, string locale, string default_tz, boolean trim, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Parsers$datetime_parser'};\n}\nmake_parser('MM-dd-uuuu', 'en-US', 'Europe/Zurich', true, '')\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "items": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "# the step expects a list of files to be considered for the calculations\nflow.params.files",
+            "size": {
+              "width": 0,
+              "height": 58
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "# the step expects a list of files to be considered for the calculations\nflow.params.files\n"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "filepath",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "results.item[:path]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "results.item[:path]"
+                }
+              },
+              {
+                "name": "filename",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "results.item[:name]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "results.item[:name]"
+                }
+              },
+              {
+                "name": "filedate",
+                "type": "datetime",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# parsing the file date from the filename\nvars.parser(strings.substring(filename,0,10))",
+                    "size": {
+                      "width": 0,
+                      "height": 65
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# parsing the file date from the filename\nvars.parser(strings.substring(filename,0,10))\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": true,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 186,
+        "y": 218
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.calculator_f9cf4d70-c3bc-41f7-9cb2-3f674affbec7",
+      "name": "Calculator",
+      "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Calculator",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": [
+              {
+                "name": "fields_required",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# these fields are required for the calculations\n[\n  'Country_Region', \n  'Confirmed', \n  'Deaths'\n]",
+                    "size": {
+                      "width": 0,
+                      "height": 140
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# these fields are required for the calculations\n[\n  'Country_Region', \n  'Confirmed', \n  'Deaths'\n]\n"
+                }
+              },
+              {
+                "name": "fields_filter",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# filter the fields of a list compared to the required fields. returns those fields that are present\n(alist) -> data.filter(alist, (x) -> data.contains?(fields_required,x))",
+                    "size": {
+                      "width": 0,
+                      "height": 65
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# filter the fields of a list compared to the required fields. returns those fields that are present\n(alist) -> data.filter(alist, (x) -> data.contains?(fields_required,x))\n"
+                }
+              },
+              {
+                "name": "fields_present",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "fields_filter(in.header)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "fields_filter(in.header)"
+                }
+              },
+              {
+                "name": "fields_ok",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# check if all required fields where found\ndata.size(fields_present)==data.size(fields_required)",
+                    "size": {
+                      "width": 0,
+                      "height": 62
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# check if all required fields where found\ndata.size(fields_present)==data.size(fields_required)\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "files_temp1",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# put a boolean in the original list of files to indicate if the found header fields are ok. used for filtering and then logging.\ndata.put(flow.params.files[in.row_index],'fields_ok', vars.fields_ok)",
+                    "size": {
+                      "width": 0,
+                      "height": 67
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# put a boolean in the original list of files to indicate if the found header fields are ok. used for filtering and then logging.\ndata.put(flow.params.files[in.row_index],'fields_ok', vars.fields_ok)\n"
+                }
+              },
+              {
+                "name": "files_temp2",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# put the list of header fields in the original list used for logging.\ndata.put(files_temp1,'fields_present', in.header)",
+                    "size": {
+                      "width": 0,
+                      "height": 61
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# put the list of header fields in the original list used for logging.\ndata.put(files_temp1,'fields_present', in.header)\n"
+                }
+              },
+              {
+                "name": "files",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "# put the list of required fields in the original list. used for logging.\ndata.put(files_temp2,'fields_required', vars.fields_required)",
+                    "size": {
+                      "width": 0,
+                      "height": 71
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "# put the list of required fields in the original list. used for logging.\ndata.put(files_temp2,'fields_required', vars.fields_required)\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": true,
+          "showOutputFields": true,
+          "dialogWidth": "stretch"
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 842,
+        "y": 218
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.features.core.steps.counter_3cf46658-99e7-40aa-af97-6653a0c9adf2",
+      "name": "Counter: files",
+      "type": "com.twineworks.tweakstreet.features.core.steps.counter",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Counter: files",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "row_index",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.counter"
+                  },
+                  "code": "::results.counter"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "startAt": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "0"
+          },
+          "code": "0"
+        },
+        "increment": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "1"
+          },
+          "code": "1"
+        },
+        "resetWhen": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "false",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "false"
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showWriteFields": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 394,
+        "y": 218
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.result.flowresult_d03469ae-46cf-4448-8832-de73836b2c68",
+      "name": "Set Flow Result",
+      "type": "com.twineworks.tweakstreet.library.steps.result.flowresult",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Set Flow Result",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "result": {
+          "widgetType": "expression/code",
+          "widgetData": {
+            "text": "in.files",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
+          },
+          "code": "in.files"
+        },
+        "editor": {
+          "showEntryVariables": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1322,
+        "y": 218
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.group.groupby_8add87cf-9338-4371-9e97-cd5f07338853",
+      "name": "Group By",
+      "type": "com.twineworks.tweakstreet.library.steps.group.groupby",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Group By",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "groupFields": {
+          "groupFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "collatedGroups": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "aggregationFields": {
+          "aggregationFields": {
+            "list": [
+              {
+                "name": "files",
+                "type": "any",
+                "aggregation": {
+                  "widgetType": "expression/aggregate-collect",
+                  "widgetData": {
+                    "nilHandling": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/nilHandling",
+                        "value": "ignore"
+                      },
+                      "code": "'ignore'"
+                    },
+                    "nanHandling": {
+                      "widgetType": "expression/select",
+                      "widgetData": {
+                        "family": "expression/select/NaNHandling",
+                        "value": "ignore"
+                      },
+                      "code": "'ignore'"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_aggregator: (string nilHandling, string nanHandling) -> via {:class 'com.twineworks.tweakstreet.library.aggregation.Aggregators$collect_aggregator'};\n}\nmake_aggregator('ignore', 'ignore')\n"
+                },
+                "subject": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "files"
+                      }
+                    }
+                  },
+                  "code": "::in.files"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showGroupFields": true,
+          "showResultVariables": false,
+          "showOutputFields": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1082,
+        "y": 218
+      }
+    }
+  ],
+  "hops": [
+    {
+      "id": "c765774e-515a-466e-9d76-d81e62980431",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_bc7b3c62-aeb3-4cfa-ac55-142a46e4b693",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f9cf4d70-c3bc-41f7-9cb2-3f674affbec7",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "953ab6c6-b56d-4b09-bb7e-ea95a661c560",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.flatmap.getitems_5899067b-342b-4ac9-ad7c-f120fd6bcb79",
+      "toStep": "com.twineworks.tweakstreet.features.core.steps.counter_3cf46658-99e7-40aa-af97-6653a0c9adf2",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "59786d55-a63e-42a1-b640-e8ad5d4b68d6",
+      "fromStep": "com.twineworks.tweakstreet.features.core.steps.counter_3cf46658-99e7-40aa-af97-6653a0c9adf2",
+      "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_bc7b3c62-aeb3-4cfa-ac55-142a46e4b693",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "73eb41f8-c94f-4989-a368-660ad11699c5",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_f9cf4d70-c3bc-41f7-9cb2-3f674affbec7",
+      "toStep": "com.twineworks.tweakstreet.library.steps.group.groupby_8add87cf-9338-4371-9e97-cd5f07338853",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "731695da-2c9c-4ad8-aabc-d946126532d6",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.group.groupby_8add87cf-9338-4371-9e97-cd5f07338853",
+      "toStep": "com.twineworks.tweakstreet.library.steps.result.flowresult_d03469ae-46cf-4448-8832-de73836b2c68",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    }
+  ]
+}

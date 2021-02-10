@@ -175,20 +175,20 @@
                   "value": {
                     "widgetType": "expression/code",
                     "widgetData": {
-                      "text": "in.files",
+                      "text": "in.result",
                       "size": {
                         "width": 0,
                         "height": 36
                       },
                       "syntax": "tweakflow"
                     },
-                    "code": "in.files"
+                    "code": "in.result"
                   }
                 }
               ]
             }
           },
-          "code": "{\n  'root_folder_data' let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0,\n  'files' in.files\n}"
+          "code": "{\n  'root_folder_data' let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0,\n  'files' in.result\n}"
         },
         "propagateErrors": {
           "widgetType": "expression/checkbox-boolean",
@@ -255,7 +255,7 @@
         "model": {}
       },
       "pos": {
-        "x": 986,
+        "x": 1050,
         "y": 186
       }
     },
@@ -302,7 +302,7 @@
         }
       },
       "pos": {
-        "x": 1242,
+        "x": 1306,
         "y": 186
       }
     },
@@ -444,17 +444,17 @@
         "model": {}
       },
       "pos": {
-        "x": 442,
+        "x": 426,
         "y": 186
       }
     },
     {
-      "id": "com.twineworks.tweakstreet.library.steps.map.logger_ce564d66-cf61-4489-af64-016a6533572b",
-      "name": "Logger: filenames",
-      "type": "com.twineworks.tweakstreet.library.steps.map.logger",
+      "id": "com.twineworks.tweakstreet.library.steps.map.runflow_9006705e-cbf5-4c57-a06f-41f4852f672d",
+      "name": "Run Flow: process headers",
+      "type": "com.twineworks.tweakstreet.library.steps.map.runflow",
       "data": {
         "meta": {
-          "name": "Logger: filenames",
+          "name": "Run Flow: process headers",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -485,76 +485,113 @@
             "collapsed": false
           }
         },
-        "message": {
-          "widgetType": "expression/text",
+        "flowPath": {
+          "widgetType": "expression/local-file",
           "widgetData": {
-            "text": "files to process:",
-            "size": {
-              "width": 0,
-              "height": 68
-            },
-            "syntax": "text",
-            "lineSeparator": "\n",
-            "interpolation": true
+            "interpolation": true,
+            "text": "./covid-00.dfl",
+            "dialogIntent": "openFile"
           },
-          "code": "'files to process:'"
+          "code": "'./covid-00.dfl'"
         },
-        "logValues": {
-          "widgetType": "expression/data-grid",
+        "params": {
+          "widgetType": "expression/dict",
           "widgetData": {
-            "fields": [
-              {
-                "id": "name",
-                "name": "name"
-              },
-              {
-                "id": "value",
-                "name": "value"
-              }
-            ],
-            "gen": {
-              "as": "rows",
-              "of": "dict",
-              "meta": false
-            },
             "table": {
               "list": [
                 {
-                  "fields": {
-                    "name": {
-                      "widgetType": "expression/string",
-                      "widgetData": {
-                        "interpolation": true,
-                        "text": "files_processed"
-                      },
-                      "code": "'files_processed'"
+                  "key": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "files"
                     },
-                    "value": {
-                      "widgetType": "expression/code",
-                      "widgetData": {
-                        "text": "data.pluck(in.files,\"name\")",
-                        "size": {
-                          "width": 0,
-                          "height": 36
-                        },
-                        "syntax": "tweakflow"
+                    "code": "'files'"
+                  },
+                  "value": {
+                    "widgetType": "expression/code",
+                    "widgetData": {
+                      "text": "in.files",
+                      "size": {
+                        "width": 0,
+                        "height": 36
                       },
-                      "code": "data.pluck(in.files,\"name\")"
-                    }
+                      "syntax": "tweakflow"
+                    },
+                    "code": "in.files"
                   }
                 }
               ]
             }
           },
-          "code": "[{\n  :name 'files_processed',\n  :value data.pluck(in.files,\"name\")\n}]"
+          "code": "{\n  'files' in.files\n}"
+        },
+        "propagateErrors": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": true
+          },
+          "code": "true"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "success",
+                "type": "boolean",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_success"
+                  },
+                  "code": "::results.flow_success"
+                }
+              },
+              {
+                "name": "result",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_result"
+                  },
+                  "code": "::results.flow_result"
+                }
+              },
+              {
+                "name": "error",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.flow_error"
+                  },
+                  "code": "::results.flow_error"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
         },
         "editor": {
-          "showEntryVariables": false
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
         },
         "model": {}
       },
       "pos": {
-        "x": 698,
+        "x": 714,
         "y": 186
       }
     }
@@ -577,17 +614,17 @@
       "disabled": false
     },
     {
-      "id": "532eff8f-c516-47f3-b5e7-6083f9df9248",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_ce564d66-cf61-4489-af64-016a6533572b",
+      "id": "86b79865-f83a-45bf-b3ce-03fdb3d60bc5",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.runflow_9006705e-cbf5-4c57-a06f-41f4852f672d",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false
     },
     {
-      "id": "d460660c-ff6b-4c00-bf30-163d4e0fdbda",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.map.logger_ce564d66-cf61-4489-af64-016a6533572b",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "id": "1fa9ef55-465d-482c-98ec-eedf66fba65c",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_9006705e-cbf5-4c57-a06f-41f4852f672d",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false
