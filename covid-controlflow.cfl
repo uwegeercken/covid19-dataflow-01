@@ -65,9 +65,9 @@
               "widgetType": "expression/string",
               "widgetData": {
                 "interpolation": true,
-                "text": ".*/[0-9]{2}-[0-9]{2}-202[0-9].csv"
+                "text": ".*/[0-9]{2}-[0-9]{2}-2021.csv"
               },
-              "code": "'.*/[0-9]{2}-[0-9]{2}-202[0-9].csv'"
+              "code": "'.*/[0-9]{2}-[0-9]{2}-2021.csv'"
             }
           }
         ]

@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "##### INFO\n\nFlow retrieves the header from each file and checks if all required fields are present. This is due to a change in the\nfiles in between.",
+            "text": "",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -20,7 +20,7 @@
           "view": "edit"
         },
         "editor": {
-          "collapsed": false
+          "collapsed": true
         }
       },
       "showingComment": true
@@ -46,7 +46,7 @@
         "list": [
           {
             "name": "files",
-            "description": "",
+            "description": "list of files to be processed",
             "type": "list",
             "defaultValue": {
               "widgetType": "expression/list",
@@ -96,11 +96,11 @@
       "data": {
         "meta": {
           "name": "CSV Input: Covid Data",
-          "showingComment": true,
+          "showingComment": false,
           "comment": {
             "markdown": {
               "text": {
-                "text": "##### INFO\n\nOnly the first line of each file is read (the header). We set \"Header Line\" to off because we\nwant to use it as a regular row here.",
+                "text": "",
                 "syntax": "markdown",
                 "size": {
                   "width": "100%",
@@ -109,9 +109,9 @@
               },
               "size": {
                 "width": null,
-                "height": 126
+                "height": 36
               },
-              "view": "preview"
+              "view": "edit"
             },
             "editor": {
               "collapsed": false
@@ -447,8 +447,8 @@
         "model": {}
       },
       "pos": {
-        "x": 378,
-        "y": 362
+        "x": 602,
+        "y": 218
       }
     },
     {
@@ -469,7 +469,7 @@
           "comment": {
             "markdown": {
               "text": {
-                "text": "##### INFO\n\nProcesses a list of files but only the header row. The header row is compared against\nthe list of fields that are required to do a correct calculation. File which do not\nhave all required fields are not processed.",
+                "text": "##### INFO\n\nProcesses a list of files but only the header row. The header row is compared against\nthe list of fields that are required to do a correct calculation.",
                 "syntax": "markdown",
                 "size": {
                   "width": "100%",
@@ -478,9 +478,9 @@
               },
               "size": {
                 "width": null,
-                "height": 160
+                "height": 134
               },
-              "view": "preview"
+              "view": "edit"
             },
             "editor": {
               "collapsed": false
@@ -810,7 +810,7 @@
         "model": {}
       },
       "pos": {
-        "x": 378,
+        "x": 842,
         "y": 218
       }
     },
@@ -921,8 +921,8 @@
         "model": {}
       },
       "pos": {
-        "x": 186,
-        "y": 362
+        "x": 394,
+        "y": 218
       }
     },
     {
@@ -987,7 +987,7 @@
         "model": {}
       },
       "pos": {
-        "x": 778,
+        "x": 1322,
         "y": 218
       }
     },
@@ -1005,11 +1005,11 @@
       "data": {
         "meta": {
           "name": "Group By",
-          "showingComment": true,
+          "showingComment": false,
           "comment": {
             "markdown": {
               "text": {
-                "text": "##### INFO\n\nthe information for the files is passed to the next flow as a parameter. So the\nindividual rows are collected in this step into a list.",
+                "text": "",
                 "syntax": "markdown",
                 "size": {
                   "width": "100%",
@@ -1018,12 +1018,12 @@
               },
               "size": {
                 "width": null,
-                "height": 122
+                "height": 160
               },
-              "view": "preview"
+              "view": "edit"
             },
             "editor": {
-              "collapsed": false
+              "collapsed": true
             }
           }
         },
@@ -1126,7 +1126,7 @@
         "model": {}
       },
       "pos": {
-        "x": 570,
+        "x": 1082,
         "y": 218
       }
     }

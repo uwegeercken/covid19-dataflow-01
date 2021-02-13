@@ -46,20 +46,20 @@
         "list": [
           {
             "name": "root_folder_data",
-            "description": "",
+            "description": "folder where the data files are located",
             "type": "string",
             "defaultValue": {
               "widgetType": "expression/string",
               "widgetData": {
                 "interpolation": true,
-                "text": "/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports"
+                "text": ""
               },
-              "code": "'/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports'"
+              "code": "''"
             }
           },
           {
             "name": "files",
-            "description": "",
+            "description": "list of files to be processed",
             "type": "list",
             "defaultValue": {
               "widgetType": "expression/list",
@@ -989,7 +989,7 @@
       },
       "pos": {
         "x": 170,
-        "y": 410
+        "y": 458
       }
     },
     {
@@ -5364,6 +5364,123 @@
         "x": 410,
         "y": 250
       }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.logger_6a36077f-80ae-4d21-8edb-7012f24eeed9",
+      "name": "Logger: valid files",
+      "type": "com.twineworks.tweakstreet.library.steps.map.logger",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Logger: valid files",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "message": {
+          "widgetType": "expression/text",
+          "widgetData": {
+            "text": "processing file",
+            "size": {
+              "width": 0,
+              "height": 68
+            },
+            "syntax": "text",
+            "lineSeparator": "\n",
+            "interpolation": true
+          },
+          "code": "'processing file'"
+        },
+        "logValues": {
+          "widgetType": "expression/data-grid",
+          "widgetData": {
+            "fields": [
+              {
+                "id": "name",
+                "name": "name"
+              },
+              {
+                "id": "value",
+                "name": "value"
+              }
+            ],
+            "gen": {
+              "as": "rows",
+              "of": "dict",
+              "meta": false
+            },
+            "table": {
+              "list": [
+                {
+                  "fields": {
+                    "name": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": "file"
+                      },
+                      "code": "'file'"
+                    },
+                    "value": {
+                      "widgetType": "expression/code",
+                      "widgetData": {
+                        "text": "row[:filepath]",
+                        "size": {
+                          "width": 0,
+                          "height": 36
+                        },
+                        "syntax": "tweakflow"
+                      },
+                      "code": "row[:filepath]"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "code": "[{\n  :name 'file',\n  :value row[:filepath]\n}]"
+        },
+        "editor": {
+          "showEntryVariables": false
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 170,
+        "y": 362
+      }
     }
   ],
   "hops": [
@@ -5698,9 +5815,24 @@
       }
     },
     {
-      "id": "6aa22d8f-bf1f-4251-982c-55be334e881d",
+      "id": "fd9d1e22-e8fc-4add-b62e-e54266bfe466",
       "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
-      "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_c62a72f5-5c78-4920-8660-76f1b684c0e3",
+      "fromGate": "no",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "bd29ccfd-c33d-4575-be33-163c6bdc5296",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_6a36077f-80ae-4d21-8edb-7012f24eeed9",
       "fromGate": "yes",
       "toGate": "in",
       "disabled": false,
@@ -5713,12 +5845,12 @@
       }
     },
     {
-      "id": "fd9d1e22-e8fc-4add-b62e-e54266bfe466",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_c62a72f5-5c78-4920-8660-76f1b684c0e3",
-      "fromGate": "no",
+      "id": "53a89e8c-ef21-48e1-8c9d-1f77ee7cc6aa",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.logger_6a36077f-80ae-4d21-8edb-7012f24eeed9",
+      "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
+      "fromGate": "out",
       "toGate": "in",
-      "disabled": true,
+      "disabled": false,
       "partitioner": {
         "widgetType": "expression/code",
         "widgetData": {
