@@ -6,7 +6,7 @@
       "comment": {
         "markdown": {
           "text": {
-            "text": "##### INFO\n\nCalculates the confirmed and death cases per country and continent and calculates values based on the population. Also\ncalculates the increase to the previous day and the increased percentage.\n\nThe variable _root_folder_data_ defines, where the Covid-19 data files are located. The data can be cloned from GitHub here: https://github.com/CSSEGISandData/COVID-19\n\nThe \"Find Files\" step collects all files to be processed using a regular expression and passes the file info to the dataflow.\n",
+            "text": "##### INFO\n\nCalculates the confirmed and death cases per country and continent and calculates values based on the population. Also\ncalculates the increase to the previous day and the increased percentage.\n\nThe variable _root_folder_data_ defines, where the Covid-19 data files are located. The data can be cloned from GitHub here: https://github.com/CSSEGISandData/COVID-19\n\nThe variable file_match_pattern allows to specify a pattern which is used to select the disired data files to process.\n\nThe \"Find Files\" step collects all files to be processed using a regular expression and passes the file info to the dataflow.\n",
             "syntax": "markdown",
             "size": {
               "width": "100%",
@@ -15,7 +15,7 @@
           },
           "size": {
             "width": null,
-            "height": 217
+            "height": 278
           },
           "view": "preview"
         },
@@ -43,19 +43,12 @@
     },
     "parameters": {
       "parameters": {
-        "list": []
-      },
-      "editor": {
-        "collapsed": false
-      }
-    },
-    "variables": {
-      "variables": {
         "list": [
           {
             "name": "root_folder_data",
+            "description": "",
             "type": "any",
-            "value": {
+            "defaultValue": {
               "widgetType": "expression/string",
               "widgetData": {
                 "interpolation": true,
@@ -63,8 +56,29 @@
               },
               "code": "'/home/uwe/development/git/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports'"
             }
+          },
+          {
+            "name": "file_match_pattern",
+            "description": "",
+            "type": "any",
+            "defaultValue": {
+              "widgetType": "expression/string",
+              "widgetData": {
+                "interpolation": true,
+                "text": ".*/[0-9]{2}-[0-9]{2}-202[0-9].csv"
+              },
+              "code": "'.*/[0-9]{2}-[0-9]{2}-202[0-9].csv'"
+            }
           }
         ]
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "variables": {
+      "variables": {
+        "list": []
       },
       "editor": {
         "collapsed": false
@@ -155,12 +169,16 @@
                     "code": "'root_folder_data'"
                   },
                   "value": {
-                    "widgetType": "expression/string",
+                    "widgetType": "expression/code",
                     "widgetData": {
-                      "interpolation": true,
-                      "text": "${flow.vars.root_folder_data}"
+                      "text": "flow.params.root_folder_data",
+                      "size": {
+                        "width": 0,
+                        "height": 36
+                      },
+                      "syntax": "tweakflow"
                     },
-                    "code": "let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0"
+                    "code": "flow.params.root_folder_data"
                   }
                 },
                 {
@@ -188,7 +206,7 @@
               ]
             }
           },
-          "code": "{\n  'root_folder_data' let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0,\n  'files' in.result\n}"
+          "code": "{\n  'root_folder_data' flow.params.root_folder_data,\n  'files' in.result\n}"
         },
         "propagateErrors": {
           "widgetType": "expression/checkbox-boolean",
@@ -351,13 +369,16 @@
           "code": "nil"
         },
         "path": {
-          "widgetType": "expression/local-file",
+          "widgetType": "expression/code",
           "widgetData": {
-            "interpolation": true,
-            "text": "${flow.vars.root_folder_data}",
-            "dialogIntent": "openFolder"
+            "text": "flow.params.root_folder_data",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
           },
-          "code": "let {\n  string interpolation_0: flow.vars.root_folder_data;\n}\ninterpolation_0"
+          "code": "flow.params.root_folder_data"
         },
         "maxDepth": {
           "widgetType": "expression/number",
@@ -367,12 +388,16 @@
           "code": "1"
         },
         "pattern": {
-          "widgetType": "expression/string",
+          "widgetType": "expression/code",
           "widgetData": {
-            "interpolation": true,
-            "text": ".*/[0-9]{2}-[0-9]{2}-202[0-9].csv"
+            "text": "flow.params.file_match_pattern",
+            "size": {
+              "width": 0,
+              "height": 36
+            },
+            "syntax": "tweakflow"
           },
-          "code": "'.*/[0-9]{2}-[0-9]{2}-202[0-9].csv'"
+          "code": "flow.params.file_match_pattern"
         },
         "filter": {
           "widgetType": "expression/code",

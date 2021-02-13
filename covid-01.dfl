@@ -5718,7 +5718,7 @@
       "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_c62a72f5-5c78-4920-8660-76f1b684c0e3",
       "fromGate": "no",
       "toGate": "in",
-      "disabled": false,
+      "disabled": true,
       "partitioner": {
         "widgetType": "expression/code",
         "widgetData": {
