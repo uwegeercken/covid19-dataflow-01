@@ -721,21 +721,21 @@
                     "value": {
                       "widgetType": "expression/code",
                       "widgetData": {
-                        "text": "in.files",
+                        "text": "in.result",
                         "size": {
                           "width": 0,
                           "height": 36
                         },
                         "syntax": "tweakflow"
                       },
-                      "code": "in.files"
+                      "code": "in.result"
                     }
                   }
                 }
               ]
             }
           },
-          "code": "[{\n  :name 'files',\n  :value in.files\n}]"
+          "code": "[{\n  :name 'files',\n  :value in.result\n}]"
         },
         "editor": {
           "showEntryVariables": false
