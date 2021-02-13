@@ -15,15 +15,22 @@ Two files are output:
   
 Files are sorted by date (descending), type (confirmed or deaths, ascending) and country respectively continent (ascending).
 
-Following steps to run the flow:
+Following steps to run the flow using the Tweakstreet GUI:
 - install the Tweakstreet ETL tool from https://tweakstreet.io
 - clone the GitHub repository of Johns Hopkins University: https://github.com/CSSEGISandData/COVID-19
 - clone this repository: https://github.com/uwegeercken/covid19-dataflow-01
 - open the controlflow "covid-controlflow.cfl" in the Tweakstreet tool
-- in the controflow properties, adjust the path (root_folder_data variable) to the Johns Hopkins University data
-- optionally, in the controlflow modify the "Find Files" step to use the desired list of files. Per default all CSV files of year 2021 are used.
+- in the controlflow properties, adjust the path (root_folder_data parameter) to the Johns Hopkins University data
+- optionally, in the controlflow properties, adjust the file_pattern_matcher parameter to use the desired list of files. Per default all CSV files of year 2021 are used.
 - run the flow
+
+Running the flow on the shell:
+Instead of running the flow in the gui, it can also be run using the engine.sh (engine.bat) command line tool. It is locate in the bin folder of the Tweakstreet installation.
+Run the tool like this to run the flow and passing the two parameters
+
+    Example: bin/engine.sh -p root_folder_data /[folder to the data files] -p file_match_pattern .*/01-[0-9]{2}-2021.csv [path to the controlflow]/covid-controlflow.cfl
+
 
 Note: the CSV output files are created in the data/output folder. You can adjust the path in the dataflow CSV output steps.
 
-last update: uwe.geercken@web.de - 2021-02-08
+last update: uwe.geercken@web.de - 2021-02-13
