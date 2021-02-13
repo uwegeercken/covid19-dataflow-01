@@ -1,0 +1,75 @@
+{
+  "type": "module",
+  "appVersion": "1.14.2",
+  "properties": {
+    "meta": {
+      "showingComment": true,
+      "comment": {
+        "markdown": {
+          "text": {
+            "text": "##### INFO\n\nconfig module for DEV environment. ",
+            "syntax": "markdown",
+            "size": {
+              "width": "100%",
+              "height": "100%"
+            }
+          },
+          "size": {
+            "width": null,
+            "height": 103
+          },
+          "view": "preview"
+        },
+        "editor": {
+          "collapsed": false
+        }
+      },
+      "role": "config"
+    },
+    "variables": {
+      "variables": {
+        "list": [
+          {
+            "name": "environment",
+            "type": "any",
+            "value": {
+              "widgetType": "expression/string",
+              "widgetData": {
+                "interpolation": true,
+                "text": "DEV"
+              },
+              "code": "'DEV'"
+            }
+          }
+        ]
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "services": {
+      "services": {
+        "list": []
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "imports": {
+      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
+      "size": {
+        "width": 0,
+        "height": 102
+      },
+      "editor": {
+        "collapsed": false
+      }
+    },
+    "editor": {
+      "showVariables": true,
+      "showServices": true,
+      "dialogWidth": "wide"
+    },
+    "model": {}
+  }
+}
