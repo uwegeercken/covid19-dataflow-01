@@ -25,8 +25,9 @@ Following steps to run the flow using the Tweakstreet GUI:
 - run the flow
 
 Running the flow on the shell:
-Instead of running the flow in the gui, it can also be run using the engine.sh (engine.bat) command line tool. It is locate in the bin folder of the Tweakstreet installation.
-Run the tool like this to run the flow and passing the two parameters
+Instead of running the flow in the gui, it can also be run using the engine.sh (engine.bat) command line tool. It is located in the /bin folder of the Tweakstreet installation.
+
+Start the command line tool like this to run the flow and passing the two parameters:
 
     Example: bin/engine.sh -p root_folder_data /[folder to the data files] -p file_match_pattern .*/01-[0-9]{2}-2021.csv [path to the controlflow]/covid-controlflow.cfl
 
