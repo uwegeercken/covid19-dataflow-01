@@ -184,9 +184,9 @@
           "widgetType": "expression/string",
           "widgetData": {
             "interpolation": true,
-            "text": "${flow.params.root_folder_data}/../UID_ISO_FIPS_LookUp_Table.csv"
+            "text": "./data/lookup/UID_ISO_FIPS_LookUp_Table.csv"
           },
-          "code": "let {\n  string interpolation_0: flow.params.root_folder_data;\n  string literal_1: '/../UID_ISO_FIPS_LookUp_Table.csv';\n}\ninterpolation_0 .. literal_1"
+          "code": "'./data/lookup/UID_ISO_FIPS_LookUp_Table.csv'"
         },
         "compression": {
           "widgetType": "expression/select",
