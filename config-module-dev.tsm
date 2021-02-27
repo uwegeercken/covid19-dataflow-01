@@ -136,9 +136,244 @@
                   "editor": {},
                   "model": {}
                 },
-                "summary": false
+                "summary": true
               },
               "code": "{\n  :type 'com.twineworks.tweakstreet.library.jdbc.generic',\n  :db {\n    :driverClass 'org.sqlite.JDBC',\n    :jdbcUrl let {\n  string literal_0: 'jdbc:sqlite:';\n  string interpolation_1: vars.sqlite_database_folder;\n  string literal_2: '/coviddata_';\n  string interpolation_3: vars.environment;\n  string literal_4: '.db';\n}\nliteral_0 .. interpolation_1 .. literal_2 .. interpolation_3 .. literal_4,\n    :properties {},\n    :defaultTz 'Europe/Zurich',\n    :connectSql ''\n  }\n}"
+            }
+          },
+          {
+            "name": "mysql-local",
+            "type": "any",
+            "category": "jdbc",
+            "value": {
+              "widgetType": "expression/database",
+              "widgetData": {
+                "type": "com.twineworks.tweakstreet.library.jdbc.mysql5",
+                "db": {
+                  "jdbcUrl": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "jdbc:mysql://localhost:3306/coviddata"
+                    },
+                    "code": "'jdbc:mysql://localhost:3306/coviddata'"
+                  },
+                  "properties": {
+                    "widgetType": "expression/dict",
+                    "widgetData": {
+                      "table": {
+                        "list": [
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "user"
+                              },
+                              "code": "'user'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "root"
+                              },
+                              "code": "'root'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "password"
+                              },
+                              "code": "'password'"
+                            },
+                            "value": {
+                              "widgetType": "expression/password",
+                              "widgetData": {
+                                "text": "fasthans",
+                                "encrypted": false
+                              },
+                              "code": "'fasthans'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "zeroDateTimeBehavior"
+                              },
+                              "code": "'zeroDateTimeBehavior'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "convertToNull"
+                              },
+                              "code": "'convertToNull'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "useLegacyDatetimeCode"
+                              },
+                              "code": "'useLegacyDatetimeCode'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "false"
+                              },
+                              "code": "'false'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "rewriteBatchedStatements"
+                              },
+                              "code": "'rewriteBatchedStatements'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "true"
+                              },
+                              "code": "'true'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "useUnicode"
+                              },
+                              "code": "'useUnicode'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "true"
+                              },
+                              "code": "'true'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "characterEncoding"
+                              },
+                              "code": "'characterEncoding'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "UTF-8"
+                              },
+                              "code": "'UTF-8'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "serverTimezone"
+                              },
+                              "code": "'serverTimezone'"
+                            },
+                            "value": {
+                              "widgetType": "expression/timezone",
+                              "widgetData": {
+                                "value": "Europe/Berlin"
+                              },
+                              "code": "'Europe/Berlin'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "useSSL"
+                              },
+                              "code": "'useSSL'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "false"
+                              },
+                              "code": "'false'"
+                            }
+                          },
+                          {
+                            "key": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "useCompression"
+                              },
+                              "code": "'useCompression'"
+                            },
+                            "value": {
+                              "widgetType": "expression/string",
+                              "widgetData": {
+                                "interpolation": true,
+                                "text": "true"
+                              },
+                              "code": "'true'"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "code": "{\n  'user' 'root',\n  'password' 'fasthans',\n  'zeroDateTimeBehavior' 'convertToNull',\n  'useLegacyDatetimeCode' 'false',\n  'rewriteBatchedStatements' 'true',\n  'useUnicode' 'true',\n  'characterEncoding' 'UTF-8',\n  'serverTimezone' 'Europe/Berlin',\n  'useSSL' 'false',\n  'useCompression' 'true'\n}"
+                  },
+                  "defaultTz": {
+                    "widgetType": "expression/timezone",
+                    "widgetData": {
+                      "value": "Europe/Berlin"
+                    },
+                    "code": "'Europe/Berlin'"
+                  },
+                  "connectSql": {
+                    "widgetType": "expression/text",
+                    "widgetData": {
+                      "text": "",
+                      "size": {
+                        "width": 0,
+                        "height": 60
+                      },
+                      "syntax": "sql",
+                      "lineSeparator": "\n",
+                      "interpolation": false
+                    },
+                    "code": "''"
+                  },
+                  "editor": {},
+                  "model": {}
+                },
+                "summary": true
+              },
+              "code": "{\n  :type 'com.twineworks.tweakstreet.library.jdbc.mysql5',\n  :db {\n    :jdbcUrl 'jdbc:mysql://localhost:3306/coviddata',\n    :properties {\n      'user' 'root',\n      'password' 'fasthans',\n      'zeroDateTimeBehavior' 'convertToNull',\n      'useLegacyDatetimeCode' 'false',\n      'rewriteBatchedStatements' 'true',\n      'useUnicode' 'true',\n      'characterEncoding' 'UTF-8',\n      'serverTimezone' 'Europe/Berlin',\n      'useSSL' 'false',\n      'useCompression' 'true'\n    },\n    :defaultTz 'Europe/Berlin',\n    :connectSql ''\n  }\n}"
             }
           }
         ]

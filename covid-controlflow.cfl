@@ -120,6 +120,23 @@
               },
               "code": "$config.services.`sqlite-covid`"
             }
+          },
+          {
+            "name": "mysql-local",
+            "type": "any",
+            "category": "jdbc",
+            "value": {
+              "widgetType": "expression/code",
+              "widgetData": {
+                "text": "$config.services.`mysql-local`",
+                "size": {
+                  "width": 0,
+                  "height": 36
+                },
+                "syntax": "tweakflow"
+              },
+              "code": "$config.services.`mysql-local`"
+            }
           }
         ]
       },
@@ -864,9 +881,9 @@
         "connection": {
           "widgetType": "expression/database-ref",
           "widgetData": {
-            "name": "sqlite-covid"
+            "name": "mysql-local"
           },
-          "code": "::flow.services.`sqlite-covid`"
+          "code": "::flow.services.`mysql-local`"
         },
         "sql": {
           "widgetType": "expression/text",
