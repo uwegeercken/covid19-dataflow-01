@@ -40,6 +40,34 @@
               },
               "code": "'DEV'"
             }
+          },
+          {
+            "name": "sqlite_database_folder",
+            "type": "string",
+            "value": {
+              "widgetType": "expression/code",
+              "widgetData": {
+                "text": "# get the absolute path where this module resides to construct the full path\nmodules.__dir() .. \"/data/output\"",
+                "size": {
+                  "width": 0,
+                  "height": 56
+                },
+                "syntax": "tweakflow"
+              },
+              "code": "# get the absolute path where this module resides to construct the full path\nmodules.__dir() .. \"/data/output\"\n"
+            }
+          },
+          {
+            "name": "database_table_name",
+            "type": "any",
+            "value": {
+              "widgetType": "expression/string",
+              "widgetData": {
+                "interpolation": true,
+                "text": "cases"
+              },
+              "code": "'cases'"
+            }
           }
         ]
       },
@@ -49,17 +77,81 @@
     },
     "services": {
       "services": {
-        "list": []
+        "list": [
+          {
+            "name": "sqlite-covid",
+            "type": "any",
+            "category": "jdbc",
+            "value": {
+              "widgetType": "expression/database",
+              "widgetData": {
+                "type": "com.twineworks.tweakstreet.library.jdbc.generic",
+                "db": {
+                  "driverClass": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "org.sqlite.JDBC"
+                    },
+                    "code": "'org.sqlite.JDBC'"
+                  },
+                  "jdbcUrl": {
+                    "widgetType": "expression/string",
+                    "widgetData": {
+                      "interpolation": true,
+                      "text": "jdbc:sqlite:${vars.sqlite_database_folder}/coviddata_${vars.environment}.db"
+                    },
+                    "code": "let {\n  string literal_0: 'jdbc:sqlite:';\n  string interpolation_1: vars.sqlite_database_folder;\n  string literal_2: '/coviddata_';\n  string interpolation_3: vars.environment;\n  string literal_4: '.db';\n}\nliteral_0 .. interpolation_1 .. literal_2 .. interpolation_3 .. literal_4"
+                  },
+                  "properties": {
+                    "widgetType": "expression/dict",
+                    "widgetData": {
+                      "table": {
+                        "list": []
+                      }
+                    },
+                    "code": "{}"
+                  },
+                  "defaultTz": {
+                    "widgetType": "expression/timezone",
+                    "widgetData": {
+                      "value": "Europe/Zurich"
+                    },
+                    "code": "'Europe/Zurich'"
+                  },
+                  "connectSql": {
+                    "widgetType": "expression/text",
+                    "widgetData": {
+                      "text": "",
+                      "size": {
+                        "width": 0,
+                        "height": 60
+                      },
+                      "syntax": "sql",
+                      "lineSeparator": "\n",
+                      "interpolation": false
+                    },
+                    "code": "''"
+                  },
+                  "editor": {},
+                  "model": {}
+                },
+                "summary": false
+              },
+              "code": "{\n  :type 'com.twineworks.tweakstreet.library.jdbc.generic',\n  :db {\n    :driverClass 'org.sqlite.JDBC',\n    :jdbcUrl let {\n  string literal_0: 'jdbc:sqlite:';\n  string interpolation_1: vars.sqlite_database_folder;\n  string literal_2: '/coviddata_';\n  string interpolation_3: vars.environment;\n  string literal_4: '.db';\n}\nliteral_0 .. interpolation_1 .. literal_2 .. interpolation_3 .. literal_4,\n    :properties {},\n    :defaultTz 'Europe/Zurich',\n    :connectSql ''\n  }\n}"
+            }
+          }
+        ]
       },
       "editor": {
         "collapsed": false
       }
     },
     "imports": {
-      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
+      "code": "# import the standard library\n# import core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n\n# this module allows us to detect the absolute path\nimport modules from 'tweakstreet/modules';",
       "size": {
         "width": 0,
-        "height": 102
+        "height": 114
       },
       "editor": {
         "collapsed": false

@@ -111,6 +111,22 @@
               },
               "code": "# calculating division between values if they belong to the same group\n# this is used in the look ahead step\n(same_group, value, next_value) ->\nif same_group and next_value!=0\nthen \n  value / next_value\nelse  0\n"
             }
+          },
+          {
+            "name": "database_table_name",
+            "type": "any",
+            "value": {
+              "widgetType": "expression/code",
+              "widgetData": {
+                "text": "$config.vars.database_table_name",
+                "size": {
+                  "width": 0,
+                  "height": 36
+                },
+                "syntax": "tweakflow"
+              },
+              "code": "$config.vars.database_table_name"
+            }
           }
         ]
       },
@@ -120,7 +136,25 @@
     },
     "services": {
       "services": {
-        "list": []
+        "list": [
+          {
+            "name": "sqlite-covid",
+            "type": "any",
+            "category": "jdbc",
+            "value": {
+              "widgetType": "expression/code",
+              "widgetData": {
+                "text": "$config.services.`sqlite-covid`",
+                "size": {
+                  "width": 0,
+                  "height": 36
+                },
+                "syntax": "tweakflow"
+              },
+              "code": "$config.services.`sqlite-covid`"
+            }
+          }
+        ]
       },
       "editor": {
         "collapsed": false
@@ -4816,6 +4850,42 @@
                   },
                   "code": "in.Country_Region == in.next[:Country_Region]"
                 }
+              },
+              {
+                "name": "date_formatter",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/format-datetime",
+                  "widgetData": {
+                    "pattern": {
+                      "widgetType": "expression/datetime-pattern",
+                      "widgetData": {
+                        "value": "uuuu-MM-dd"
+                      },
+                      "code": "'uuuu-MM-dd'"
+                    },
+                    "locale": {
+                      "widgetType": "expression/locale",
+                      "widgetData": {
+                        "value": "en-US"
+                      },
+                      "code": "'en-US'"
+                    },
+                    "nilValue": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": ""
+                      },
+                      "code": "''"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_formatter: (string pattern, string locale, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Formatters$datetime_formatter'};\n}\nmake_formatter('uuuu-MM-dd', 'en-US', '')\n"
+                }
               }
             ]
           },
@@ -4952,6 +5022,22 @@
                     "syntax": "tweakflow"
                   },
                   "code": "in.total_confirmed/in.population * 100"
+                }
+              },
+              {
+                "name": "filedate",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "entry_vars.date_formatter(in.filedate)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "entry_vars.date_formatter(in.filedate)"
                 }
               }
             ]
@@ -5184,7 +5270,7 @@
     },
     {
       "id": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
-      "name": "Filter",
+      "name": "Filter: fields ok",
       "type": "com.twineworks.tweakstreet.library.steps.bool.filter",
       "instanceCount": {
         "widgetType": "expression/number",
@@ -5195,7 +5281,7 @@
       },
       "data": {
         "meta": {
-          "name": "Filter",
+          "name": "Filter: fields ok",
           "showingComment": false,
           "comment": {
             "markdown": {
@@ -5363,6 +5449,448 @@
       "pos": {
         "x": 410,
         "y": 250
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.output.sqlinsert_ac9d1b1b-3727-496e-960f-03e95ea67deb",
+      "name": "SQL Insert",
+      "type": "com.twineworks.tweakstreet.library.steps.output.sqlinsert",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "SQL Insert",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": [
+              {
+                "name": "date_formatter",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/format-datetime",
+                  "widgetData": {
+                    "pattern": {
+                      "widgetType": "expression/datetime-pattern",
+                      "widgetData": {
+                        "value": "uuuu-MM-dd"
+                      },
+                      "code": "'uuuu-MM-dd'"
+                    },
+                    "locale": {
+                      "widgetType": "expression/locale",
+                      "widgetData": {
+                        "value": "en-US"
+                      },
+                      "code": "'en-US'"
+                    },
+                    "nilValue": {
+                      "widgetType": "expression/string",
+                      "widgetData": {
+                        "interpolation": true,
+                        "text": ""
+                      },
+                      "code": "''"
+                    },
+                    "editor": {
+                      "collapsed": true
+                    },
+                    "model": {}
+                  },
+                  "code": "let {\n  make_formatter: (string pattern, string locale, string nilValue) -> function via {:class 'com.twineworks.tweakstreet.library.conversion.Formatters$datetime_formatter'};\n}\nmake_formatter('uuuu-MM-dd', 'en-US', '')\n"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "connection": {
+          "widgetType": "expression/database-ref",
+          "widgetData": {
+            "name": "sqlite-covid"
+          },
+          "code": "::flow.services.`sqlite-covid`"
+        },
+        "schema": {
+          "widgetType": "expression/string",
+          "widgetData": {
+            "interpolation": true,
+            "text": ""
+          },
+          "code": "''"
+        },
+        "table": {
+          "widgetType": "expression/string",
+          "widgetData": {
+            "interpolation": true,
+            "text": "${$config.vars.database_table_name}"
+          },
+          "code": "let {\n  string interpolation_0: $config.vars.database_table_name;\n}\ninterpolation_0"
+        },
+        "batchSize": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "1000"
+          },
+          "code": "1000"
+        },
+        "commitSize": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "1000"
+          },
+          "code": "1000"
+        },
+        "getGeneratedKeys": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "pkField": {
+          "widgetType": "expression/string",
+          "widgetData": {
+            "interpolation": true,
+            "text": ""
+          },
+          "code": "''"
+        },
+        "fieldMode": {
+          "value": "fixed"
+        },
+        "dataDrivenColumns": {
+          "widgetType": "expression/data-grid",
+          "widgetData": {
+            "fields": [
+              {
+                "id": "type",
+                "name": "type"
+              },
+              {
+                "id": "name",
+                "name": "name"
+              }
+            ],
+            "gen": {
+              "as": "rows",
+              "of": "dict",
+              "meta": false
+            },
+            "table": {
+              "list": []
+            }
+          },
+          "code": "[]"
+        },
+        "dataDrivenValues": {
+          "widgetType": "expression/field-value-ref",
+          "widgetData": {
+            "fieldSelect": {
+              "value": null
+            }
+          },
+          "code": "nil"
+        },
+        "writeFields": {
+          "writeFields": {
+            "list": [
+              {
+                "name": "filedate",
+                "type": "string",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "entry_vars.date_formatter(in.filedate)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "entry_vars.date_formatter(in.filedate)"
+                }
+              },
+              {
+                "name": "Country_Region",
+                "type": "string",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "Country_Region"
+                      }
+                    }
+                  },
+                  "code": "::in.Country_Region"
+                }
+              },
+              {
+                "name": "continent_name",
+                "type": "string",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "continent_name"
+                      }
+                    }
+                  },
+                  "code": "::in.continent_name"
+                }
+              },
+              {
+                "name": "total_deaths",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "total_deaths"
+                      }
+                    }
+                  },
+                  "code": "::in.total_deaths"
+                }
+              },
+              {
+                "name": "total_confirmed",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "total_confirmed"
+                      }
+                    }
+                  },
+                  "code": "::in.total_confirmed"
+                }
+              },
+              {
+                "name": "population",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "population"
+                      }
+                    }
+                  },
+                  "code": "::in.population"
+                }
+              },
+              {
+                "name": "increase_total_confirmed",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "increase_total_confirmed"
+                      }
+                    }
+                  },
+                  "code": "::in.increase_total_confirmed"
+                }
+              },
+              {
+                "name": "increase_total_confirmed_percent",
+                "type": "double",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "increase_total_confirmed_percent"
+                      }
+                    }
+                  },
+                  "code": "::in.increase_total_confirmed_percent"
+                }
+              },
+              {
+                "name": "increase_total_deaths",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "increase_total_deaths"
+                      }
+                    }
+                  },
+                  "code": "::in.increase_total_deaths"
+                }
+              },
+              {
+                "name": "increase_total_deaths_percent",
+                "type": "double",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "increase_total_deaths_percent"
+                      }
+                    }
+                  },
+                  "code": "::in.increase_total_deaths_percent"
+                }
+              },
+              {
+                "name": "deaths_per_100000",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "deaths_per_100000"
+                      }
+                    }
+                  },
+                  "code": "::in.deaths_per_100000"
+                }
+              },
+              {
+                "name": "deaths_per_100",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "deaths_per_100"
+                      }
+                    }
+                  },
+                  "code": "::in.deaths_per_100"
+                }
+              },
+              {
+                "name": "confirmed_per_100000",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "confirmed_per_100000"
+                      }
+                    }
+                  },
+                  "code": "::in.confirmed_per_100000"
+                }
+              },
+              {
+                "name": "confirmed_per_100",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "confirmed_per_100"
+                      }
+                    }
+                  },
+                  "code": "::in.confirmed_per_100"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "sqlEditor": {
+          "text": "CREATE TABLE cases (\n  filedate VARCHAR(10),\n  Country_Region VARCHAR(255),\n  continent_name VARCHAR(255),\n  total_deaths VARCHAR(255),\n  total_confirmed VARCHAR(255),\n  population INTEGER,\n  increase_total_confirmed INTEGER,\n  increase_total_confirmed_percent DOUBLE PRECISION,\n  increase_total_deaths INTEGER,\n  increase_total_deaths_percent DOUBLE PRECISION,\n  deaths_per_100000 VARCHAR(255),\n  deaths_per_100 VARCHAR(255),\n  confirmed_per_100000 VARCHAR(255),\n  confirmed_per_100 VARCHAR(255)\n)",
+          "size": {
+            "width": 0,
+            "height": 180
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": true,
+          "showResultVariables": false,
+          "showWriteFields": true,
+          "showSqlEditor": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1466,
+        "y": 426
       }
     }
   ],
@@ -5583,7 +6111,7 @@
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
       "fromGate": "out",
       "toGate": "in",
-      "disabled": false,
+      "disabled": true,
       "partitioner": {
         "widgetType": "expression/code",
         "widgetData": {
@@ -5613,7 +6141,7 @@
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_b40fba10-56bf-4051-b316-4a490dda3e36",
       "fromGate": "out",
       "toGate": "in",
-      "disabled": false,
+      "disabled": true,
       "partitioner": {
         "widgetType": "expression/code",
         "widgetData": {
@@ -5717,6 +6245,21 @@
       "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_3546a4cb-2e16-4ed4-88cc-40b65f6f9e7d",
       "toStep": "com.twineworks.tweakstreet.library.steps.input.csvinput_c77689bb-16e5-4084-ad15-25d69d177b45",
       "fromGate": "yes",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "a7d2a457-791d-49e6-b4bb-bdab32b9dc46",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_98d066a4-68c2-4d54-8a16-360ca06d6e47",
+      "toStep": "com.twineworks.tweakstreet.library.steps.output.sqlinsert_ac9d1b1b-3727-496e-960f-03e95ea67deb",
+      "fromGate": "out",
       "toGate": "in",
       "disabled": false,
       "partitioner": {

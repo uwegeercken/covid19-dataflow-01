@@ -103,7 +103,25 @@
     },
     "services": {
       "services": {
-        "list": []
+        "list": [
+          {
+            "name": "sqlite-covid",
+            "type": "any",
+            "category": "jdbc",
+            "value": {
+              "widgetType": "expression/code",
+              "widgetData": {
+                "text": "$config.services.`sqlite-covid`",
+                "size": {
+                  "width": 0,
+                  "height": 36
+                },
+                "syntax": "tweakflow"
+              },
+              "code": "$config.services.`sqlite-covid`"
+            }
+          }
+        ]
       },
       "editor": {
         "collapsed": false
@@ -121,8 +139,8 @@
         }
       },
       "pos": {
-        "x": 182,
-        "y": 182
+        "x": 154,
+        "y": 186
       }
     },
     {
@@ -290,7 +308,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1306,
+        "x": 1242,
         "y": 186
       }
     },
@@ -337,7 +355,7 @@
         }
       },
       "pos": {
-        "x": 1530,
+        "x": 1450,
         "y": 186
       }
     },
@@ -486,7 +504,7 @@
         "model": {}
       },
       "pos": {
-        "x": 426,
+        "x": 538,
         "y": 186
       }
     },
@@ -633,7 +651,7 @@
         "model": {}
       },
       "pos": {
-        "x": 698,
+        "x": 762,
         "y": 186
       }
     },
@@ -805,6 +823,128 @@
         "x": 986,
         "y": 186
       }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.sqlscript_33ace2b4-68a2-44b6-883d-c2cf0ff1e6bc",
+      "name": "SQL Script",
+      "type": "com.twineworks.tweakstreet.library.steps.map.sqlscript",
+      "data": {
+        "meta": {
+          "name": "SQL Script",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "connection": {
+          "widgetType": "expression/database-ref",
+          "widgetData": {
+            "name": "sqlite-covid"
+          },
+          "code": "::flow.services.`sqlite-covid`"
+        },
+        "sql": {
+          "widgetType": "expression/text",
+          "widgetData": {
+            "text": "delete from cases",
+            "size": {
+              "width": 0,
+              "height": 200
+            },
+            "syntax": "sql",
+            "lineSeparator": "\n",
+            "interpolation": false
+          },
+          "code": "'delete from cases'"
+        },
+        "jdbcParams": {
+          "widgetType": "expression/list",
+          "widgetData": {
+            "table": {
+              "list": []
+            }
+          },
+          "code": "[]"
+        },
+        "getGeneratedKeys": {
+          "widgetType": "expression/checkbox-boolean",
+          "widgetData": {
+            "value": false
+          },
+          "code": "false"
+        },
+        "onSqlErrors": {
+          "widgetType": "expression/select",
+          "widgetData": {
+            "family": "com.twineworks.tweakstreet.library.steps.map.sqlscript/onSqlErrors",
+            "value": "error"
+          },
+          "code": "'error'"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "data",
+                "type": "list",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.data"
+                  },
+                  "code": "::results.data"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 346,
+        "y": 186
+      }
     }
   ],
   "hops": [
@@ -812,14 +952,6 @@
       "id": "86ee6c92-be58-49d2-ba10-dd54efcd7cda",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
       "toStep": "com.twineworks.tweakstreet.library.steps.end.finish_69b9d223-0ac5-44bf-add6-ede3ac6fa8ca",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false
-    },
-    {
-      "id": "a6241fc1-18ed-4422-9359-c6a591a856b4",
-      "fromStep": "start",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false
@@ -841,14 +973,6 @@
       "disabled": false
     },
     {
-      "id": "a9ba43d6-083a-449d-a094-a1f6d24644e8",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_d66d6fc6-2523-464f-b4eb-9f66121ab6e2",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
-      "fromGate": "no",
-      "toGate": "in",
-      "disabled": false
-    },
-    {
       "id": "da47c6e4-1488-47fd-9ce2-982c79775b66",
       "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_d66d6fc6-2523-464f-b4eb-9f66121ab6e2",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.logger_48ae29f8-13b5-406d-b899-8afaaba09f86",
@@ -860,6 +984,30 @@
       "id": "62dd18f6-2225-46d0-a585-f3069c25c645",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.logger_48ae29f8-13b5-406d-b899-8afaaba09f86",
       "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false
+    },
+    {
+      "id": "0b42b444-6c6d-47b8-a703-9d56e317f84a",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.bool.filter_d66d6fc6-2523-464f-b4eb-9f66121ab6e2",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.runflow_ae639c2e-6355-4ff6-ba45-1168690f881b",
+      "fromGate": "no",
+      "toGate": "in",
+      "disabled": false
+    },
+    {
+      "id": "5fcb56f6-e419-467b-b611-b8cf6ec216ba",
+      "fromStep": "start",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.sqlscript_33ace2b4-68a2-44b6-883d-c2cf0ff1e6bc",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false
+    },
+    {
+      "id": "3d468117-d8d3-4ab9-b7d8-eb86600b1268",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.sqlscript_33ace2b4-68a2-44b6-883d-c2cf0ff1e6bc",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.findfiles_cb31fb3a-627a-41b6-b464-4ffab6644241",
       "fromGate": "out",
       "toGate": "in",
       "disabled": false
