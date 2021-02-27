@@ -2,7 +2,6 @@
 *.tmp
 *.bak
 *.swp
-*.csv
 *.zip
 *.log
 
