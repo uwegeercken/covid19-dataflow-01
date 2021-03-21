@@ -1,6 +1,6 @@
 {
   "type": "data-flow",
-  "appVersion": "1.14.2",
+  "appVersion": "1.15.0",
   "properties": {
     "meta": {
       "comment": {
@@ -1955,7 +1955,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1466,
+        "x": 1482,
         "y": 106
       }
     },
@@ -2261,7 +2261,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1466,
+        "x": 1482,
         "y": 266
       }
     },
@@ -3895,7 +3895,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1466,
+        "x": 1482,
         "y": 570
       }
     },
@@ -4613,7 +4613,7 @@
         "model": {}
       },
       "pos": {
-        "x": 1466,
+        "x": 1498,
         "y": 730
       }
     },
@@ -5552,9 +5552,9 @@
         "connection": {
           "widgetType": "expression/database-ref",
           "widgetData": {
-            "name": "mysql-local"
+            "name": "sqlite-covid"
           },
-          "code": "::flow.services.`mysql-local`"
+          "code": "::flow.services.`sqlite-covid`"
         },
         "schema": {
           "widgetType": "expression/string",
@@ -5642,18 +5642,18 @@
             "list": [
               {
                 "name": "filedate",
-                "type": "string",
+                "type": "any",
                 "value": {
-                  "widgetType": "expression/code",
+                  "widgetType": "expression/field-value-ref",
                   "widgetData": {
-                    "text": "entry_vars.date_formatter(in.filedate)",
-                    "size": {
-                      "width": 0,
-                      "height": 36
-                    },
-                    "syntax": "tweakflow"
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "filedate"
+                      }
+                    }
                   },
-                  "code": "entry_vars.date_formatter(in.filedate)"
+                  "code": "::in.filedate"
                 }
               },
               {
@@ -5863,6 +5863,38 @@
                   },
                   "code": "::in.confirmed_per_100"
                 }
+              },
+              {
+                "name": "increase7days",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "increase7days"
+                      }
+                    }
+                  },
+                  "code": "::in.increase7days"
+                }
+              },
+              {
+                "name": "incidence7days_100000",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/field-value-ref",
+                  "widgetData": {
+                    "fieldSelect": {
+                      "value": {
+                        "gate": "in",
+                        "name": "incidence7days_100000"
+                      }
+                    }
+                  },
+                  "code": "::in.incidence7days_100000"
+                }
               }
             ]
           },
@@ -5879,7 +5911,7 @@
           }
         },
         "sqlEditor": {
-          "text": "CREATE TABLE cases (\n  filedate VARCHAR(10),\n  Country_Region VARCHAR(255),\n  continent_name VARCHAR(255),\n  total_deaths VARCHAR(255),\n  total_confirmed VARCHAR(255),\n  population INT,\n  increase_total_confirmed INT,\n  increase_total_confirmed_percent DOUBLE PRECISION,\n  increase_total_deaths INT,\n  increase_total_deaths_percent DOUBLE PRECISION,\n  deaths_per_100000 VARCHAR(255),\n  deaths_per_100 VARCHAR(255),\n  confirmed_per_100000 VARCHAR(255),\n  confirmed_per_100 VARCHAR(255)\n)",
+          "text": "ALTER TABLE cases ADD increase7days INTEGER\n\nALTER TABLE cases ADD incidence7days_100000 VARCHAR(255)",
           "size": {
             "width": 0,
             "height": 180
@@ -5906,7 +5938,250 @@
         "model": {}
       },
       "pos": {
-        "x": 1466,
+        "x": 1626,
+        "y": 426
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_57e6852f-4581-4876-b626-f4bd4b42292f",
+      "name": "Look ahead/behind",
+      "type": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Look ahead/behind",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "trackIncoming": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "7"
+          },
+          "code": "7"
+        },
+        "trackDeparted": {
+          "widgetType": "expression/number",
+          "widgetData": {
+            "text": "0"
+          },
+          "code": "0"
+        },
+        "resultVariables": {
+          "variables": {
+            "list": []
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "next7",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/result-ref",
+                  "widgetData": {
+                    "value": "::results.incoming"
+                  },
+                  "code": "::results.incoming"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": false,
+          "showResultVariables": false,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1178,
+        "y": 426
+      }
+    },
+    {
+      "id": "com.twineworks.tweakstreet.library.steps.map.calculator_6a50d830-cc37-4666-a8cb-2fee664e185e",
+      "name": "Calculator",
+      "type": "com.twineworks.tweakstreet.library.steps.map.calculator",
+      "instanceCount": {
+        "widgetType": "expression/number",
+        "widgetData": {
+          "text": "1"
+        },
+        "code": "1"
+      },
+      "data": {
+        "meta": {
+          "name": "Calculator",
+          "showingComment": false,
+          "comment": {
+            "markdown": {
+              "text": {
+                "text": "",
+                "syntax": "markdown",
+                "size": {
+                  "width": "100%",
+                  "height": "100%"
+                }
+              },
+              "size": {
+                "width": null,
+                "height": 160
+              },
+              "view": "edit"
+            },
+            "editor": {
+              "collapsed": true
+            }
+          }
+        },
+        "entryVariables": {
+          "variables": {
+            "list": [
+              {
+                "name": "getConfirmed7days",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "(days) ->\nfor   \n  day <- days,\n  day[:total_confirmed]",
+                    "size": {
+                      "width": 0,
+                      "height": 192
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "((days) ->\nfor   \n  day <- days,\n  day[:total_confirmed])"
+                }
+              },
+              {
+                "name": "confirmed7Days",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "getConfirmed7days(in.next7)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "getConfirmed7days(in.next7)"
+                }
+              },
+              {
+                "name": "increase7days",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "in.total_confirmed - confirmed7Days[data.size(confirmed7Days)-1]",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "in.total_confirmed - confirmed7Days[data.size(confirmed7Days)-1]"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "outputFields": {
+          "outputFields": {
+            "list": [
+              {
+                "name": "increase7days",
+                "type": "long",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "entry_vars.increase7days",
+                    "size": {
+                      "width": 0,
+                      "height": 192
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "entry_vars.increase7days"
+                }
+              },
+              {
+                "name": "incidence7days_100000",
+                "type": "any",
+                "value": {
+                  "widgetType": "expression/code",
+                  "widgetData": {
+                    "text": "entry_vars.increase7days / (in.population /100000)",
+                    "size": {
+                      "width": 0,
+                      "height": 36
+                    },
+                    "syntax": "tweakflow"
+                  },
+                  "code": "entry_vars.increase7days / (in.population /100000)"
+                }
+              }
+            ]
+          },
+          "editor": {
+            "collapsed": false
+          }
+        },
+        "editor": {
+          "showEntryVariables": true,
+          "showOutputFields": true
+        },
+        "model": {}
+      },
+      "pos": {
+        "x": 1402,
         "y": 426
       }
     }
@@ -6108,21 +6383,6 @@
       }
     },
     {
-      "id": "72ec7f6a-9ee5-48c6-8a8a-f285de00637b",
-      "fromStep": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_06665af1-9116-486e-8db2-2046ee13b263",
-      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_98d066a4-68c2-4d54-8a16-360ca06d6e47",
-      "fromGate": "out",
-      "toGate": "in",
-      "disabled": false,
-      "partitioner": {
-        "widgetType": "expression/code",
-        "widgetData": {
-          "text": ""
-        },
-        "code": "nil"
-      }
-    },
-    {
       "id": "ad71c5d2-c636-44b8-aedf-d193ce58a9e0",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_98d066a4-68c2-4d54-8a16-360ca06d6e47",
       "toStep": "com.twineworks.tweakstreet.library.steps.stringoutput.csvoutput_265e6625-947e-44f4-89f6-b7e181516996",
@@ -6273,8 +6533,53 @@
       }
     },
     {
-      "id": "a7d2a457-791d-49e6-b4bb-bdab32b9dc46",
+      "id": "e78f6b12-9376-4406-8de5-ebfb02066f0a",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_06665af1-9116-486e-8db2-2046ee13b263",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_98d066a4-68c2-4d54-8a16-360ca06d6e47",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "96b9261b-fb17-42d8-9f6d-620c8f24d0b0",
       "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_98d066a4-68c2-4d54-8a16-360ca06d6e47",
+      "toStep": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_57e6852f-4581-4876-b626-f4bd4b42292f",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "4411f3ff-d8b0-4fd1-b216-8175b76f07e6",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.buffer.lookaheadbehind_57e6852f-4581-4876-b626-f4bd4b42292f",
+      "toStep": "com.twineworks.tweakstreet.library.steps.map.calculator_6a50d830-cc37-4666-a8cb-2fee664e185e",
+      "fromGate": "out",
+      "toGate": "in",
+      "disabled": false,
+      "partitioner": {
+        "widgetType": "expression/code",
+        "widgetData": {
+          "text": ""
+        },
+        "code": "nil"
+      }
+    },
+    {
+      "id": "641d6eec-cdde-4dd2-8505-bc48d263096d",
+      "fromStep": "com.twineworks.tweakstreet.library.steps.map.calculator_6a50d830-cc37-4666-a8cb-2fee664e185e",
       "toStep": "com.twineworks.tweakstreet.library.steps.output.sqlinsert_ac9d1b1b-3727-496e-960f-03e95ea67deb",
       "fromGate": "out",
       "toGate": "in",

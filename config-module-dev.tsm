@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "appVersion": "1.14.2",
+  "appVersion": "1.15.0",
   "properties": {
     "meta": {
       "showingComment": true,

@@ -1,6 +1,6 @@
 {
   "type": "control-flow",
-  "appVersion": "1.14.2",
+  "appVersion": "1.15.0",
   "properties": {
     "meta": {
       "comment": {
@@ -881,9 +881,9 @@
         "connection": {
           "widgetType": "expression/database-ref",
           "widgetData": {
-            "name": "mysql-local"
+            "name": "sqlite-covid"
           },
-          "code": "::flow.services.`mysql-local`"
+          "code": "::flow.services.`sqlite-covid`"
         },
         "sql": {
           "widgetType": "expression/text",
